@@ -83,6 +83,21 @@ int deliver(){
 		cout<<"Ha seleccionado tipo de pago con tarjeta."<<endl;
 	}
 	else cout<<"Ha seleccionado tipo de pago en efectivo."<<endl;
+	
+	//Creating text folder
+	ofstream delivery("deliveryRecord.txt",ios_base::app); 
+	if (delivery.is_open()){
+		//Saving order information 
+		delivery<<name<<" "<<lastN<<" "<<" "<<mainC<<" "<<starter<<" "<<drink<<" "<<amount<<" "<<payment<<" "<<endl;
+		cout<<endl;
+		delivery.close();
+	}		
+	else cout<<"No se puede abrir el archivo o no existe"<<endl;
+	
+	return 0;
+	
+	//Cleaning screen
+	system("cls");
 }
 
 //Menu function
