@@ -216,53 +216,45 @@ int restaurant(int option2){
 	}
 	
 	//Printing starter menu
-	cout<<"\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:";	cin>>starter;
+	cout << "\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:"; cin >> option.starter;
 	
 	//Choosing starter
-	switch (starter){
+	switch (option.starter){
 		case 1:
-			amount2= amount1+(2.99*acommpanying);
+			option.amount2 = option.amount1 + (2.99 * option.acommpanying);
 			break;
 		default:
-			amount2= amount1+(1.99*acommpanying);
+			option.amount2 = option.amount1 + (1.99 * option.acommpanying);
 			break;
 	}
 	
 	//Printing drink menu
-	cout<<"\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:";	cin>>drink;
+	cout << "\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:";	cin >> option.drink;
 	
 	//Choosing drink
-	switch (drink){
+	switch (option.drink){
 		case 1:
-			amount= amount2+(1.99*acommpanying);
+			option.amount = option.amount2 + (1.99 * option.acommpanying);
 			break;
 		default:
-			amount= amount1+(0.99*acommpanying);
+			option.amount = option.amount1 + (0.99 * option.acommpanying);
 			break;
 	}
 	
 	//Showing total amount of the order 
-	cout<<"\nMonto: $"<<amount;
+	cout << "\nMonto: $" << option.amount;
 	
 	//Asking for payment method
-	cout<<endl<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin>>payment;
+	cout << endl << "\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin >> option.payment;
 	
 	//Verifying payment method selection
-	if (payment==1){
-		cout<<"Ha seleccionado tipo de pago con tarjeta."<<endl;
+	if (option.payment == 1){
+		cout << "Ha seleccionado tipo de pago con tarjeta." << endl;
 	}
-	else cout<<"Ha seleccionado tipo de pago en efectivo."<<endl;
-	
-	//Creating text folder
-	ofstream restaurant("restaurantRecord.txt",ios_base::app); //Guardo el espacio en un archivo
-	if (restaurant.is_open()){ //Si el archivo se abre
-		restaurant<<name<<" "<<lastN<<" "<<acommpanying<<" "<<mainC<<" "<<starter<<" "<<drink<<" "<<amount<<" "<<payment<<" "<<endl;
-		cout<<endl;
-		restaurant.close();
-	}		
-	else cout<<"No se puede abrir el archivo o no existe"<<endl;
+	else cout << "Ha seleccionado tipo de pago en efectivo." << endl;
 	
 	system("cls");
+	
 	return 0;
 	
 }
