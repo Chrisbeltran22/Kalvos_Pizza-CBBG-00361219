@@ -6,6 +6,7 @@
 
 using namespace std; 
 
+//Structs
 struct pizza{
 	//Personal information variables
 	string name, address[50];
