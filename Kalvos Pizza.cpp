@@ -6,24 +6,27 @@
 
 using namespace std; 
 
-//Structs
-struct pizza{
+//struct
+struct pizza{	
+	int election;
+	
 	//Personal information variables
-	string name, address[50];
+	string name, lastN, address;
 	int phone, acommpanying;
+	
 	//Menu information variables
 	int mainC, starter, drink;
+	
 	//Money information variables
 	float amount1, amount2, amount;
 	int payment, num1, num2, num3;
 };
 
-//Prototipes
+
 void menu();
-int deliver();
-int restaurant();
-void seeDeliveries();
-void seeRestaurant();
+int deliver(int option1);
+int restaurant(int option2);
+void seeDeliveries(int option3);
 
 //Main function
 int main(){
