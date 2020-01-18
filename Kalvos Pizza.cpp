@@ -191,27 +191,27 @@ int deliver(int option1){
 }
 
 //Option 2 function
-int restaurant(){
+int restaurant(int option2){
+	pizza option;
 	
 	//Cleaning buffer
 	fflush(stdin);
 	
 	//Printing personal information requirements 
-	cout<<"Nombre de la persona que realiza la reserva: ";	cin>>name;
-	cout<<endl<<"Apellido: "; cin>>lastN;
-	cout<<"\nAcompanantes por mesa: ";	cin>>acommpanying;
-	cout<<"\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion: ";	cin>>mainC;
+	cout << "Nombre de la persona que realiza la reserva: ";	getline (cin, option.name);
+	cout << "\nAcompanantes por mesa: ";	cin >> option.acommpanying;
+	cout << "\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion: ";	cin >> option.mainC;
 	
 	//Choosing main Course
-	switch (mainC){
+	switch (option.mainC){
 		case 1:
-			amount1=11.99*acommpanying;
+			option.amount1 = 11.99 * option.acommpanying;
 			break;
-		case 2:
-			amount1=6.99*acommpanying;
+		case 2: 
+			option.amount1 = 6.99 * option.acommpanying;
 			break;
 		default:
-			amount1=8.99*acommpanying;
+			option.amount1 = 8.99 * option.acommpanying;
 			break;
 	}
 	
