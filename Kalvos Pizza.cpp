@@ -262,3 +262,9 @@ int restaurant(int option2){
 	
 }
 
+//Option 3 function
+void seeDeliveries(int option3){
+	pizza option;
+	
+}
+
