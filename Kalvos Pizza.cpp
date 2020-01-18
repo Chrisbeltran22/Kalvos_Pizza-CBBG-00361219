@@ -6,6 +6,17 @@
 
 using namespace std; 
 
+struct pizza{
+	//Personal information variables
+	string name, address[50];
+	int phone, acommpanying;
+	//Menu information variables
+	int mainC, starter, drink;
+	//Money information variables
+	float amount1, amount2, amount;
+	int payment, num1, num2, num3;
+};
+
 void menu();
 int deliver();
 int restaurant();
@@ -79,7 +90,7 @@ void menu(){
 				break; 
 			case 3:
 				//Deliveries orders
-				//seeDeliveries();
+				seeDeliveries();
 				break;
 			case 4:
 				//Restaurant orders
@@ -98,15 +109,6 @@ void menu(){
 
 //Option 1 function
 int deliver(){
-	
-	//Personal information variables
-	char name[20], lastN[20], address[50];
-	int phone;
-	//Menu information variables
-	int mainC, starter, drink;
-	//Money information variables
-	float amount1, amount2, amount;
-	int payment, num1, num2, num3;
 	
 	//Cleaning Buffer
 	fflush(stdin);
@@ -192,15 +194,6 @@ int deliver(){
 
 //Option 2 function
 int restaurant(){
-	
-	//Personal information variables
-	char name[20], lastN[20];
-	int acommpanying;
-	//Menu information variables
-	int mainC, starter, drink;
-	//Money information variables
-	float amount1, amount2, amount;
-	int payment, num1, num2, num3;
 	
 	//Cleaning buffer
 	fflush(stdin);
