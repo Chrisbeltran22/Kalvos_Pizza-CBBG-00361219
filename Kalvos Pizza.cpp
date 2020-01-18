@@ -8,6 +8,7 @@ using namespace std;
 
 void menu();
 int deliver();
+int restaurant();
 
 //Option 5 function
 
@@ -16,93 +17,6 @@ int deliver();
 
 
 //Option 3 function
-
-
-//Option 2 function
-int restaurant(){
-	
-	//Personal information variables
-	char name[20], lastN[20];
-	int acommpanying;
-	//Menu information variables
-	int mainC, starter, drink;
-	//Money information variables
-	float amount1, amount2, amount;
-	int payment, num1, num2, num3;
-	
-	//Cleaning buffer
-	fflush(stdin);
-	
-	//Printing personal information requirements 
-	cout<<"Nombre de la persona que realiza la reserva: ";	cin>>name;
-	cout<<endl<<"Apellido: "; cin>>lastN;
-	cout<<"\nAcompanantes por mesa: ";	cin>>acommpanying;
-	cout<<"\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion: ";	cin>>mainC;
-	
-	//Choosing main Course
-	switch (mainC){
-		case 1:
-			amount1=11.99*acommpanying;
-			break;
-		case 2:
-			amount1=6.99*acommpanying;
-			break;
-		default:
-			amount1=8.99*acommpanying;
-			break;
-	}
-	
-	//Printing starter menu
-	cout<<"\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:";	cin>>starter;
-	
-	//Choosing starter
-	switch (starter){
-		case 1:
-			amount2= amount1+(2.99*acommpanying);
-			break;
-		default:
-			amount2= amount1+(1.99*acommpanying);
-			break;
-	}
-	
-	//Printing drink menu
-	cout<<"\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:";	cin>>drink;
-	
-	//Choosing drink
-	switch (drink){
-		case 1:
-			amount= amount2+(1.99*acommpanying);
-			break;
-		default:
-			amount= amount1+(0.99*acommpanying);
-			break;
-	}
-	
-	//Showing total amount of the order 
-	cout<<"\nMonto: $"<<amount;
-	
-	//Asking for payment method
-	cout<<endl<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin>>payment;
-	
-	//Verifying payment method selection
-	if (payment==1){
-		cout<<"Ha seleccionado tipo de pago con tarjeta."<<endl;
-	}
-	else cout<<"Ha seleccionado tipo de pago en efectivo."<<endl;
-	
-	//Creating text folder
-	ofstream restaurant("restaurantRecord.txt",ios_base::app); //Guardo el espacio en un archivo
-	if (restaurant.is_open()){ //Si el archivo se abre
-		restaurant<<name<<" "<<lastN<<" "<<acommpanying<<" "<<mainC<<" "<<starter<<" "<<drink<<" "<<amount<<" "<<payment<<" "<<endl;
-		cout<<endl;
-		restaurant.close();
-	}		
-	else cout<<"No se puede abrir el archivo o no existe"<<endl;
-	
-	system("cls");
-	return 0;
-	
-}
 
 //Main function
 int main(){
@@ -276,3 +190,88 @@ int deliver(){
 	system("cls");
 }
 
+//Option 2 function
+int restaurant(){
+	
+	//Personal information variables
+	char name[20], lastN[20];
+	int acommpanying;
+	//Menu information variables
+	int mainC, starter, drink;
+	//Money information variables
+	float amount1, amount2, amount;
+	int payment, num1, num2, num3;
+	
+	//Cleaning buffer
+	fflush(stdin);
+	
+	//Printing personal information requirements 
+	cout<<"Nombre de la persona que realiza la reserva: ";	cin>>name;
+	cout<<endl<<"Apellido: "; cin>>lastN;
+	cout<<"\nAcompanantes por mesa: ";	cin>>acommpanying;
+	cout<<"\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion: ";	cin>>mainC;
+	
+	//Choosing main Course
+	switch (mainC){
+		case 1:
+			amount1=11.99*acommpanying;
+			break;
+		case 2:
+			amount1=6.99*acommpanying;
+			break;
+		default:
+			amount1=8.99*acommpanying;
+			break;
+	}
+	
+	//Printing starter menu
+	cout<<"\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:";	cin>>starter;
+	
+	//Choosing starter
+	switch (starter){
+		case 1:
+			amount2= amount1+(2.99*acommpanying);
+			break;
+		default:
+			amount2= amount1+(1.99*acommpanying);
+			break;
+	}
+	
+	//Printing drink menu
+	cout<<"\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:";	cin>>drink;
+	
+	//Choosing drink
+	switch (drink){
+		case 1:
+			amount= amount2+(1.99*acommpanying);
+			break;
+		default:
+			amount= amount1+(0.99*acommpanying);
+			break;
+	}
+	
+	//Showing total amount of the order 
+	cout<<"\nMonto: $"<<amount;
+	
+	//Asking for payment method
+	cout<<endl<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin>>payment;
+	
+	//Verifying payment method selection
+	if (payment==1){
+		cout<<"Ha seleccionado tipo de pago con tarjeta."<<endl;
+	}
+	else cout<<"Ha seleccionado tipo de pago en efectivo."<<endl;
+	
+	//Creating text folder
+	ofstream restaurant("restaurantRecord.txt",ios_base::app); //Guardo el espacio en un archivo
+	if (restaurant.is_open()){ //Si el archivo se abre
+		restaurant<<name<<" "<<lastN<<" "<<acommpanying<<" "<<mainC<<" "<<starter<<" "<<drink<<" "<<amount<<" "<<payment<<" "<<endl;
+		cout<<endl;
+		restaurant.close();
+	}		
+	else cout<<"No se puede abrir el archivo o no existe"<<endl;
+	
+	system("cls");
+	return 0;
+	
+}
