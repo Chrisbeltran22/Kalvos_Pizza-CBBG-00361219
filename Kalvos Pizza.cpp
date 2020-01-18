@@ -6,6 +6,17 @@
 
 using namespace std; 
 
+void menu();
+
+//Option 5 function
+
+
+//Option 4 function
+
+
+//Option 3 function
+
+
 //Option 2 function
 int restaurant(){
 	
@@ -186,8 +197,36 @@ int deliver(){
 	system("cls");
 }
 
+
+//Main function
+int main(){
+	
+	//Variables
+	char password[5];
+	string passw;
+	passw = "class"; 
+	
+	//While bucle
+	while(password != passw){
+		
+		//Printing
+		cout<<"Bienvenido, por favor introduzca la contrasena para continuar: ";
+		cin>>password;
+		
+		//Password verification
+			if (password == passw){
+				system("cls");
+				menu();
+			}
+			else cout<<"Contrasena erronea, por favor introduzca de nuevo la contrasena."<<endl;
+		
+		system ("pause");	
+		system("cls");
+	}
+}
+
 //Menu function
-int menu(){
+void menu(){
 		
 	int option;
 	int std = 6;
@@ -237,31 +276,5 @@ int menu(){
 	}
 }
 
-//Main function
-int main(){
-	
-	//Variables
-	char password[5];
-	string passw;
-	passw = "class"; 
-	
-	//While bucle
-	while(password != passw){
-		
-		//Printing
-		cout<<"Bienvenido, por favor introduzca la contrasena para continuar: ";
-		cin>>password;
-		
-		//Password verification
-			if (password == passw){
-				system("cls");
-				menu();
-			}
-			else cout<<"Contrasena erronea, por favor introduzca de nuevo la contrasena."<<endl;
-		
-		system ("pause");	
-		system("cls");
-	}
-}
 
 
