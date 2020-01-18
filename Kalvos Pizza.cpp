@@ -132,60 +132,62 @@ int deliver(int option1){
 			break;
 	}
 	
+	cout << "Numero de platos que desea: "; cin >> option.num1;
+	
 	//Printing starter menu
-	cout<<"\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:";	cin>>starter;
-	cout<<"Numero de entradas que desea: "; cin>>num2;
+	cout << "\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:"; cin >> option.starter;
 	
 	//Choosing starter
-	switch (starter){
+	switch (option.starter){
 		case 1:
-			amount2= amount1+ (2.99*num2);
+			option.amount2= option.amount1 + (2.99 * option.num2);
+			break;
+		case 2:
+			option.amount2= option.amount1 + (1.99 * option.num2);
 			break;
 		default:
-			amount2= amount1+ (1.99*num2);
+			cout << "Seleccione una de las opciones del menu" << endl;
+			return 0;
 			break;
 	}
+	
+	cout << "Numero de entradas que desea: "; cin >> option.num2;
 	
 	//Printing drink menu
-	cout<<"\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:";	cin>>drink;
-	cout<<"Numero de bebidas que desea: "; cin>>num3;
+	cout << "\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:"; cin >> option.drink;
 	
 	//Choosing drink
-	switch (drink){
+	switch (option.drink){
 		case 1:
-			amount= amount2+ (1.99*num3);
+			option.amount= option.amount2 + (1.99 * option.num3);
+			break;
+		case 2:
+			option.amount= option.amount1 + (0.99 * option.num3);
 			break;
 		default:
-			amount= amount1+ (0.99*num3);
+			cout << "Seleccione una de las opciones del menu" << endl;
+			return 0;
 			break;
 	}
 	
+	cout << "Numero de bebidas que desea: "; cin >> option.num3;
+	
 	//Showing total amount of the order
-	cout<<"\nMonto: $"<<amount;
+	cout << "\nMonto: $" << option.amount;
 	
 	//Asking for payment method
-	cout<<endl<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin>>payment;
+	cout << endl << "\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin >> option.payment;
 	
 	//Verifyin payment method selection
-	if (payment==1){
-		cout<<"Ha seleccionado tipo de pago con tarjeta."<<endl;
+	if (option.payment==1){
+		cout << "Ha seleccionado tipo de pago con tarjeta." << endl;
 	}
-	else cout<<"Ha seleccionado tipo de pago en efectivo."<<endl;
-	
-	//Creating text folder
-	ofstream delivery("deliveryRecord.txt",ios_base::app); 
-	if (delivery.is_open()){
-		//Saving order information 
-		delivery<<name<<" "<<lastN<<" "<<" "<<mainC<<" "<<starter<<" "<<drink<<" "<<amount<<" "<<payment<<" "<<endl;
-		cout<<endl;
-		delivery.close();
-	}		
-	else cout<<"No se puede abrir el archivo o no existe"<<endl;
-	
-	return 0;
+	else cout << "Ha seleccionado tipo de pago en efectivo." << endl;
 	
 	//Cleaning screen
 	system("cls");
+	
+	return 0;
 }
 
 //Option 2 function
