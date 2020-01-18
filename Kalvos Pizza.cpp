@@ -38,7 +38,7 @@ int main(){
 		
 		//Printing
 		cout<<"Bienvenido, por favor introduzca la contrasena para continuar: ";
-		cin>>password;
+		cin>>password;     
 		
 		//Password verification
 			if (password == passw){
@@ -54,50 +54,49 @@ int main(){
 
 //Menu function
 void menu(){
-		
-	int option;
+	pizza option;
 	int std = 6;
 	
 	//While bucle
 	while(std !=0){
 		
 		//Printing
-		cout<<"Bienvenido a Calvo's pizza"<<endl;
-		cout<<"Seleccione el proceso a realizar: "<<endl;
+		cout << "Bienvenido a Calvo's pizza" << endl;
+		cout << "Seleccione el proceso a realizar: " << endl;
 		
 		//Showing menu
-		cout<<"1> Agregar 1 pedido a domicilio\n2> Agregar 1 encargo en restaurante"<<endl;
-		cout<<"3> Ver pedidos a domicilio\n4> Ver encargos en el restaurante\n5> Ver total de venta"<<endl;	
+		cout << "1> Agregar 1 pedido a domicilio\n2> Agregar 1 encargo en restaurante" << endl;
+		cout << "3> Ver pedidos a domicilio\n4> Ver encargos en el restaurante\n5> Ver total de venta" << endl;	
 
 		//Selection menu
-		cin>>option;
+		cin >> option.election;
 		
 		system("cls");
 			
 		//Menu options
-		switch (option){
+		switch (option.election){
 			case 1:
 				//Deliver function
-				deliver();
+				deliver(option.election);
 				break;
 			case 2:
 				//Restaurant function
-				restaurant();
+				restaurant(option.election);
 				break; 
 			case 3:
 				//Deliveries orders
-				seeDeliveries();
+				seeDeliveries(selection.option3);
 				break;
 			case 4:
 				//Restaurant orders
-				//seeRestaurant();
+				//seeRestaurant(selection.option4);
 				break;
 			case 5:
 				//Total amount
-				//totalSales();
+				//totalSales(selection.option5);
 				break;
 			default:
-				cout<<"Seleccione una entrada valida por favor"<<endl;
+				cout << "Seleccione una entrada valida por favor" << endl;
 				break;
 		}
 	}
@@ -264,7 +263,4 @@ int restaurant(){
 	return 0;
 	
 }
-
-
-
 
