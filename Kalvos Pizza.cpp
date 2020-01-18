@@ -103,31 +103,32 @@ void menu(){
 }
 
 //Option 1 function
-int deliver(){
-	
+int deliver(int option1){
+	pizza option;
 	//Cleaning Buffer
 	fflush(stdin);
 	
 	//Printing personal information requirements 
-	cout<<"Nombre de la persona que realiza el pedido: ";	cin>>name;
-	cout<<endl<<"Apellido: "; cin>>lastN;
-	cout<<endl<<"Direccion: ";	cin>>address;
-	cout<<"\nTelefono: ";	cin>>phone;
+	cout << "Nombre de la persona que realiza el pedido: ";	getline (cin, option.name);
+	cout << endl <<"Direccion: ";	getline (cin, option.address);
+	cout << "\nTelefono: ";	cin >> option.phone;
 	
 	//Printing main Course menu
-	cout<<"\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion: ";	cin>>mainC;
-	cout<<"Numero de platos que desea: "; cin>>num1;
+	cout << "\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";	cin >> option.mainC;
 	
 	//Choosing main Course
-	switch (mainC){
+	switch (option.mainC){
 		case 1:
-			amount1=11.99*num1;
+			option.amount1=11.99 * option.num1;
 			break;
 		case 2:
-			amount1=6.99*num1;
+			option.amount1=6.99 * option.num1;
+			break;
+		case 3:
+			option.amount1=8.99 * option.num1;
 			break;
 		default:
-			amount1=8.99*num1;
+			cout << "Seleccione una de las opciones del menu" << endl;
 			break;
 	}
 	
