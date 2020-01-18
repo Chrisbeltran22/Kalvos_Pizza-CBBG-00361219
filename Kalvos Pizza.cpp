@@ -18,17 +18,12 @@ struct pizza{
 	int payment, num1, num2, num3;
 };
 
+//Prototipes
 void menu();
 int deliver();
 int restaurant();
-
-//Option 5 function
-
-
-//Option 4 function
-
-
-//Option 3 function
+void seeDeliveries();
+void seeRestaurant();
 
 //Main function
 int main(){
@@ -269,3 +264,7 @@ int restaurant(){
 	return 0;
 	
 }
+
+
+
+
