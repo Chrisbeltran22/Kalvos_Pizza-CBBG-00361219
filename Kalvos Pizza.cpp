@@ -194,29 +194,37 @@ void delivery(){
 }
 
 //Option 2 function
-int restaurant(int option2, int array){
-	pizza option;
-	
+int restaurant(int option2, int array){	
 	//Cleaning buffer
 	fflush(stdin);
 	
-	//Printing personal information requirements 
-	cout << "Nombre de la persona que realiza la reserva: ";	getline (cin, option.name);
-	cout << "\nAcompanantes por mesa: ";	cin >> option.acommpanying;
-	cout << "\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion: ";	cin >> option.mainC;
+	if (cantidad < 8){
+		//Printing requeriments on screen
+		cout << "Nombre de la persona que realiza la reserva: ";
+		getline (cin, total2[cantidad].name);
+		
+		cout << "Acompanantes por mesa: ";
+		cin >> total2[cantidad].acommpanying;
+		
+		cout << "Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
+		cin >> total2[cantidad].mainC;
 	
-	//Choosing main Course
-	switch (option.mainC){
-		case 1:
-			option.amount1 = 11.99 * option.acommpanying;
-			break;
-		case 2: 
-			option.amount1 = 6.99 * option.acommpanying;
-			break;
-		default:
-			option.amount1 = 8.99 * option.acommpanying;
-			break;
-	}
+		//Choosing main Course
+		switch (total2[cantidad].mainC){
+			case 1:
+				total2[cantidad].amount1= 11.99 * total2[cantidad].acommpanying;
+				break;
+			case 2:
+				total2[cantidad].amount1= 6.99 * total2[cantidad].acommpanying;
+				break;
+			case 3:
+				total2[cantidad].amount1= 8.99 * total2[cantidad].acommpanying;
+				break;
+			default:
+				cout << "Seleccione una de las opciones del menu" << endl;
+				break;
+		}
+		cin.ignore();
 	
 	//Printing starter menu
 	cout << "\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:"; cin >> option.starter;
