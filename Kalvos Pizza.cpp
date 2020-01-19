@@ -93,12 +93,39 @@ int main(){
 			system("cls");
 		}
 	}
-	else {
-		//Printing on screen and cleaning after
-		cout << "Ingresando al sistema" << endl;
-		system ("pause");
-		//menuEmployee();
-		
+	if (user == 2) {
+		while (option!=8){
+			//Printing on screen and cleaning after
+			cout << "Ingresando al sistema" << endl;
+			system ("pause");
+			system ("cls");
+			
+			//Printing on screen
+			cout<<"Ingresando al sistema"<<endl;
+			system ("pause");
+			system ("cls");
+			
+			//Printing menu			
+			cout << "\n1. Agregar 1 pedido a domicilio \n";
+		    cout << "2. Agregar 1 encargo a restaurante\n";
+		    cout << "3. Ver pedidos a domicilio\n";
+		    cout << "4. Ver pedidos en restaurante\n";
+			cout << "5. Ver total de venta\n";
+			cout << "6. Cambiar de usuario\n";
+			cout << "Opcion: ";
+		    cin >> option;
+		    cin.ignore();
+					    	
+			switch (option){
+		    	case 1: system ("cls"); delivery(); break;
+		    	case 2: system ("cls"); restaurant(); break;
+				case 3: system ("cls"); seeDeliveries(); break;
+		    	case 4: system ("cls"); seeRestaurant(); break;
+		    	case 5: system ("cls"); totalSales(); break;
+				case 6: system ("cls"); main(); break;
+				
+		    }
+		}
 	}
 
 	return 0;
