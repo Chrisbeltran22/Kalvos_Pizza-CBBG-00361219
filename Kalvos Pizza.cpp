@@ -139,70 +139,6 @@ void menu(){
 	return;
 }
 
-//Menu employee function
-void menuEmployee(){
-	pizza option;										  
-	int array = 0;										  
-	int *p;	
-	
-	//Printing on screen 								
-	cout << "Determine la dimension del arreglo: ";	
-	cin >> array;	
-	
-	//Create dinamic arrangements									
-	p = new int [array];
-	
-	for (int i = 0; i < array; i++){
-		
-		//Printing
-		cout << "Bienvenido a Calvo's pizza" << endl;
-		cout << "Seleccione el proceso a realizar: " << endl;
-		
-		//Showing menu
-		cout << "1> Agregar 1 pedido a domicilio\n2> Agregar 1 encargo en restaurante3> Ver pedidos a domicilio" << endl;
-		cout << "4> Ver encargos en el restaurante\n5> Ver total de venta\n6> Regresar a seleccion de usuario" << endl;	
-
-		//Selection menu
-		cin >> option.election;
-		
-		system("cls");
-			
-		//Menu options
-		switch (option.election){
-			case 1:
-				//Deliver function
-				deliver(option.election, array);
-				break;
-			case 2:
-				//Restaurant function
-				restaurant(option.election, array);
-				break; 
-			case 3:
-				//Deliveries orders
-				seeDeliveries(option.election);
-				break;
-			case 4:
-				//Restaurant orders
-				//seeRestaurant(selection.option4);
-				break;
-			case 5:
-				//Total amount
-				//totalSales(selection.option5);
-				break;
-			case 6:
-				//Return main menu
-				main();
-			case 7:
-				deleteOrders();
-			default:
-				cout << "Seleccione una entrada valida por favor" << endl;
-				break;
-		}
-	}
-	cout << "Fin del programa" << endl;
-	return;
-}
-
 //Option 1 function
 int deliver(int option1, int array){
 	pizza option;
@@ -366,4 +302,68 @@ void seeDeliveries(int option3){
 
 int deleteOrders(){
 	pizza option;
+}
+
+//Menu employee function
+void menuEmployee(){
+	pizza option;										  
+	int array = 0;										  
+	int *p;	
+	
+	//Printing on screen 								
+	cout << "Determine la dimension del arreglo: ";	
+	cin >> array;	
+	
+	//Create dinamic arrangements									
+	p = new int [array];
+	
+	for (int i = 0; i < array; i++){
+		
+		//Printing
+		cout << "Bienvenido a Calvo's pizza" << endl;
+		cout << "Seleccione el proceso a realizar: " << endl;
+		
+		//Showing menu
+		cout << "1> Agregar 1 pedido a domicilio\n2> Agregar 1 encargo en restaurante3> Ver pedidos a domicilio" << endl;
+		cout << "4> Ver encargos en el restaurante\n5> Ver total de venta\n6> Regresar a seleccion de usuario" << endl;	
+
+		//Selection menu
+		cin >> option.election;
+		
+		system("cls");
+			
+		//Menu options
+		switch (option.election){
+			case 1:
+				//Deliver function
+				deliverE(option.election, array);
+				break;
+			case 2:
+				//Restaurant function
+				restaurantE(option.election, array);
+				break; 
+			case 3:
+				//Deliveries orders
+				seeDeliveriesE(option.election);
+				break;
+			case 4:
+				//Restaurant orders
+				//seeRestaurant(selection.option4);
+				break;
+			case 5:
+				//Total amount
+				//totalSales(selection.option5);
+				break;
+			case 6:
+				//Return main menu
+				main();
+			case 7:
+				deleteOrders();
+			default:
+				cout << "Seleccione una entrada valida por favor" << endl;
+				break;
+		}
+	}
+	cout << "Fin del programa" << endl;
+	return;
 }
