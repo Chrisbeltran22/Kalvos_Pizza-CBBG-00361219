@@ -68,6 +68,7 @@ int main(){
 		cout << "Ingresando al sistema" << endl;
 		system ("pause");
 		
+		
 	}
 }
 
@@ -92,7 +93,7 @@ void menu(){
 		
 		//Showing menu
 		cout << "1> Agregar 1 pedido a domicilio\n2> Agregar 1 encargo en restaurante" << endl;
-		cout << "3> Ver pedidos a domicilio\n4> Ver encargos en el restaurante\n5> Ver total de venta" << endl;	
+		cout << "3> Ver pedidos a domicilio\n4> Ver encargos en el restaurante\n5> Ver total de venta\n6> Regresar a seleccion de usuario" << endl;	
 
 		//Selection menu
 		cin >> option.election;
@@ -121,12 +122,15 @@ void menu(){
 				//Total amount
 				//totalSales(selection.option5);
 				break;
+			case 6:
+				//Return main menu
+				main();
 			default:
 				cout << "Seleccione una entrada valida por favor" << endl;
 				break;
 		}
 	}
-	cout << "ERROR\nEl tamano del arreglo no es valido" << endl;
+	cout << "Fin del programa" << endl;
 	return;
 }
 
