@@ -11,7 +11,7 @@ struct continente{
 	
 	string name, address;
 	int phone, acommpanying;
-	int mainC, starter, drink;
+	int mainC, starter, drink; 
 	float amount1, amount2, amount;
 	int payment, num1, num2,  num3;
 	
@@ -23,14 +23,11 @@ struct continente total2[5];
 int cantidad = 0;
 
 //Prototypes
-void menu();
-void menuEmployee();
-int deliver(int option1, int array);
-int deliverE(int option1E, int arrayE);
-int restaurant(int option2, int array);
-int restaurantE(int option2E, int arrayE);
-void seeDeliveries(int option3);
-int deleteOrders();
+void delivery();
+void restaurant();
+void seeDeliveries();
+void seeRestaurant();
+void totalSales();
 
 //Main function
 int main(){
