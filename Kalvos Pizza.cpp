@@ -307,7 +307,33 @@ void seeDeliveries(){
 		}
 		else cout<<"No se ha encontrado informacion en este continente"<<endl;
 	}
+}
+
+//Option 4 function
+void seeRestaurant(){
+	string name;
+	cout<<"Encargos en restaurante: ";
 	
+	for (int j = 0; j < cantidad; j++){
+		if (name.compare(total2[j].name) != 0){
+			cout << endl;
+			cout << endl << "Nombre: " << total2[j].name;
+			cout << endl << "Acompanantes: " << total2[j].acommpanying;
+			cout << endl << "Plato principal:\n1> Pizza\t2> Ensalada\t3>Pasta\nSu seleccion: " << total2[j].mainC;	
+			cout << endl << "Entrada: 1> Cheese Rollers\t2> Pizza Hands\nSu seleccion: " << total2[j].starter;
+			cout << endl << "Bebida: 1> Gaseosa\t2> Te helado\nSu seleccion: " << total2[j].drink;
+			cout << endl << "Tipo de pago: 1> Tarjeta\t2> Efectivo\nSu seleccion: " << total2[j].payment;
+			cout << endl << "Total a pagar: $" << total2[j].amount;
+			cout << endl;
+			
+			system ("pause");
+			system ("cls");
+				
+		}
+		else cout<<"No se ha encontrado informacion en este continente"<<endl;
+	}
+	
+	system ("cls");
 }
 
 int deleteOrders(){
