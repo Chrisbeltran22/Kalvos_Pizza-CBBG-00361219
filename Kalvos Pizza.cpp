@@ -84,8 +84,7 @@ void menu(){
 	//Create dinamic arrangements									
 	p = new int [array];
 	
-	//While bucle
-	while(array != 0){
+	for (int i = 0; i < array; i++){
 		
 		//Printing
 		cout << "Bienvenido a Calvo's pizza" << endl;
