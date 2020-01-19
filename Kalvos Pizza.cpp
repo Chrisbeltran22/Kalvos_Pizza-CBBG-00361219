@@ -137,6 +137,60 @@ void delivery(){
 				break;
 		}
 		cin.ignore();
+		
+		//Printing on screen
+		cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
+		cin>>total[cantcontinentes].starter;
+		cout << "Numero de entradas que desea: "; cin >> total[cantcontinentes].num2;
+	
+		//Choosing starter
+		switch (total[cantcontinentes].starter){
+			case 1:
+				total[cantcontinentes].amount2= total[cantcontinentes].amount1 + (2.99 * total[cantcontinentes].num2);
+				break;
+			case 2:
+				total[cantcontinentes].amount2= total[cantcontinentes].amount1 + (1.99 * total[cantcontinentes].num2);
+				break;
+			default:
+				cout << "Seleccione una de las opciones del menu" << endl;
+				return;
+				break;
+		}
+		cin.ignore();
+		
+		//Printing on screen
+		cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
+		cin>>total[cantcontinentes].drink;
+		cout << "Numero de bebidas que desea: "; cin >> total[cantcontinentes].num3;
+		
+		//Choosing drink
+		switch (total[cantcontinentes].drink){
+			case 1:
+				total[cantcontinentes].amount= total[cantcontinentes].amount2 + (1.99 * total[cantcontinentes].num3);
+				break;
+			case 2:
+				total[cantcontinentes].amount= total[cantcontinentes].amount1 + (0.99 * total[cantcontinentes].num3);
+				break;
+			default:
+				cout << "Seleccione una de las opciones del menu" << endl;
+				return;
+				break;
+		}
+		
+		//Showing total amount of the order
+		cout << "\nMonto: $" << total[cantcontinentes].amount;
+		cin.ignore();
+		
+		cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
+		cin>>total[cantcontinentes].payment;
+		cin.ignore();
+		
+		
+		cantcontinentes++;
+		
+		system ("cls");
+	}
+	else cout<<"Lo sentimos, espacio lleno"<<endl;
 }
 
 //Option 2 function
