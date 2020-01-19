@@ -368,7 +368,7 @@ void menuEmployee(){
 	return;
 }
 
-//Option 1 function
+//Deliver employee function
 int deliverE(int option1, int array){
 	pizza option;
 	//Cleaning Buffer
@@ -447,8 +447,80 @@ int deliverE(int option1, int array){
 	}
 	else cout << "Ha seleccionado tipo de pago en efectivo." << endl;
 	
-	//Cleaning screen
+	//Pause to clean screen
+	system ("pause");
 	system("cls");
 	
 	return menuEmployee();
+}
+
+//Restaurant employee function
+int restaurantE(int option2, int array){
+	pizza option;
+	
+	//Cleaning buffer
+	fflush(stdin);
+	
+	//Printing personal information requirements 
+	cout << "Nombre de la persona que realiza la reserva: ";	getline (cin, option.name);
+	cout << "\nAcompanantes por mesa: ";	cin >> option.acommpanying;
+	cout << "\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion: ";	cin >> option.mainC;
+	
+	//Choosing main Course
+	switch (option.mainC){
+		case 1:
+			option.amount1 = 11.99 * option.acommpanying;
+			break;
+		case 2: 
+			option.amount1 = 6.99 * option.acommpanying;
+			break;
+		default:
+			option.amount1 = 8.99 * option.acommpanying;
+			break;
+	}
+	
+	//Printing starter menu
+	cout << "\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:"; cin >> option.starter;
+	
+	//Choosing starter
+	switch (option.starter){
+		case 1:
+			option.amount2 = option.amount1 + (2.99 * option.acommpanying);
+			break;
+		default:
+			option.amount2 = option.amount1 + (1.99 * option.acommpanying);
+			break;
+	}
+	
+	//Printing drink menu
+	cout << "\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:";	cin >> option.drink;
+	
+	//Choosing drink
+	switch (option.drink){
+		case 1:
+			option.amount = option.amount2 + (1.99 * option.acommpanying);
+			break;
+		default:
+			option.amount = option.amount2 + (0.99 * option.acommpanying);
+			break;
+	}
+	
+	//Showing total amount of the order 
+	cout << "\nMonto: $" << option.amount;
+	
+	//Asking for payment method
+	cout << endl << "\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin >> option.payment;
+	
+	//Verifying payment method selection
+	if (option.payment == 1){
+		cout << "Ha seleccionado tipo de pago con tarjeta." << endl;
+	}
+	else cout << "Ha seleccionado tipo de pago en efectivo." << endl;
+	
+	//Pause to clean screen
+	system ("pause");
+	system("cls");
+	
+	return 0;
+	
 }
