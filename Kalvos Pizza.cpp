@@ -19,13 +19,13 @@ struct pizza{
 	
 	//Money information variables
 	float amount1, amount2, amount;
-	int payment, num1, num2, num3;
+	int payment, num1, num2,  num3;
 };
 
 void menu();
-int deliver(int option1);
-int restaurant(int option2);
-void seeDeliveries(int option3, int amount);
+int deliver(int option1, int array);
+int restaurant(int option2, int array);
+void seeDeliveries(int option3);
 
 //Main function
 int main(){
@@ -74,18 +74,18 @@ int main(){
 //Menu function
 void menu(){
 	pizza option;										  
-	int std = 0;										  
+	int array = 0;										  
 	int *p;	
 	
 	//Printing on screen 								
 	cout << "Determine la dimension del arreglo: ";	
-	cin >> std;	
+	cin >> array;	
 	
 	//Create dinamic arrangements									
-	p = new int [std];
+	p = new int [array];
 	
 	//While bucle
-	while(std != 0){
+	while(array != 0){
 		
 		//Printing
 		cout << "Bienvenido a Calvo's pizza" << endl;
@@ -104,15 +104,15 @@ void menu(){
 		switch (option.election){
 			case 1:
 				//Deliver function
-				deliver(option.election);
+				deliver(option.election, array);
 				break;
 			case 2:
 				//Restaurant function
-				restaurant(option.election);
+				restaurant(option.election, array);
 				break; 
 			case 3:
 				//Deliveries orders
-				seeDeliveries(option.election, option.amount);
+				seeDeliveries(option.election);
 				break;
 			case 4:
 				//Restaurant orders
@@ -132,7 +132,7 @@ void menu(){
 }
 
 //Option 1 function
-int deliver(int option1){
+int deliver(int option1, int array){
 	pizza option;
 	//Cleaning Buffer
 	fflush(stdin);
@@ -144,6 +144,7 @@ int deliver(int option1){
 	
 	//Printing main Course menu
 	cout << "\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";	cin >> option.mainC;
+	cout << "Numero de platos que desea: "; cin >> option.num1;
 	
 	//Choosing main Course
 	switch (option.mainC){
@@ -161,10 +162,9 @@ int deliver(int option1){
 			break;
 	}
 	
-	cout << "Numero de platos que desea: "; cin >> option.num1;
-	
 	//Printing starter menu
 	cout << "\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:"; cin >> option.starter;
+	cout << "Numero de entradas que desea: "; cin >> option.num2;
 	
 	//Choosing starter
 	switch (option.starter){
@@ -180,26 +180,23 @@ int deliver(int option1){
 			break;
 	}
 	
-	cout << "Numero de entradas que desea: "; cin >> option.num2;
-	
 	//Printing drink menu
 	cout << "\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:"; cin >> option.drink;
-	
+	cout << "Numero de bebidas que desea: "; cin >> option.num3;
+		
 	//Choosing drink
 	switch (option.drink){
 		case 1:
-			option.amount= option.amount2 + (1.99 * option.num3);
+			option.amount= option.amount2 + (1.99 * option.num2);
 			break;
 		case 2:
-			option.amount= option.amount1 + (0.99 * option.num3);
+			option.amount= option.amount1 + (0.99 * option.num2);
 			break;
 		default:
 			cout << "Seleccione una de las opciones del menu" << endl;
 			return 0;
 			break;
 	}
-	
-	cout << "Numero de bebidas que desea: "; cin >> option.num3;
 	
 	//Showing total amount of the order
 	cout << "\nMonto: $" << option.amount;
@@ -220,7 +217,7 @@ int deliver(int option1){
 }
 
 //Option 2 function
-int restaurant(int option2){
+int restaurant(int option2, int array){
 	pizza option;
 	
 	//Cleaning buffer
@@ -266,7 +263,7 @@ int restaurant(int option2){
 			option.amount = option.amount2 + (1.99 * option.acommpanying);
 			break;
 		default:
-			option.amount = option.amount1 + (0.99 * option.acommpanying);
+			option.amount = option.amount2 + (0.99 * option.acommpanying);
 			break;
 	}
 	
@@ -285,14 +282,12 @@ int restaurant(int option2){
 	system ("pause");
 	system("cls");
 	
-	return option.amount;
+	return 0;
 	
 }
 
 //Option 3 function
-void seeDeliveries(int option3, int amount){
+void seeDeliveries(int option3){
 	pizza option;
-	
-	
 }
 
