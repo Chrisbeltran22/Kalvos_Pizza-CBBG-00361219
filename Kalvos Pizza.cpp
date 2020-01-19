@@ -7,26 +7,28 @@
 using namespace std; 
 
 //struct
-struct pizza{	
-	int election;
+struct continente{
 	
-	//Personal information variables
-	string name, lastN, address;
+	string name, address;
 	int phone, acommpanying;
-	
-	//Menu information variables
 	int mainC, starter, drink;
-	
-	//Money information variables
 	float amount1, amount2, amount;
 	int payment, num1, num2,  num3;
+	
 };
+
+struct continente total[5];
+int cantcontinentes = 0;
+struct continente total2[5];
+int cantidad = 0;
 
 //Prototypes
 void menu();
 void menuEmployee();
 int deliver(int option1, int array);
+int deliverE(int option1E, int arrayE);
 int restaurant(int option2, int array);
+int restaurantE(int option2E, int arrayE);
 void seeDeliveries(int option3);
 int deleteOrders();
 
@@ -88,7 +90,7 @@ void menu(){
 	//Create dinamic arrangements									
 	p = new int [array];
 	
-	for (int i = 0; i < array; i++){
+	while (array != 0){
 		
 		//Printing
 		cout << "Bienvenido a Calvo's pizza" << endl;
@@ -307,17 +309,17 @@ int deleteOrders(){
 //Menu employee function
 void menuEmployee(){
 	pizza option;										  
-	int array = 0;										  
-	int *p;	
+	int arrayE = 0;										  
+	int *pE;	
 	
 	//Printing on screen 								
 	cout << "Determine la dimension del arreglo: ";	
-	cin >> array;	
+	cin >> arrayE;	
 	
 	//Create dinamic arrangements									
-	p = new int [array];
+	pE = new int [arrayE];
 	
-	for (int i = 0; i < array; i++){
+	while(arrayE != 0){
 		
 		//Printing
 		cout << "Bienvenido a Calvo's pizza" << endl;
@@ -328,23 +330,23 @@ void menuEmployee(){
 		cout << "4> Ver encargos en el restaurante\n5> Ver total de venta\n6> Regresar a seleccion de usuario" << endl;	
 
 		//Selection menu
-		cin >> option.election;
+		cin >> option.electionE;
 		
 		system("cls");
 			
 		//Menu options
-		switch (option.election){
+		switch (option.electionE){
 			case 1:
 				//Deliver function
-				deliverE(option.election, array);
+				deliverE(option.electionE, arrayE);
 				break;
 			case 2:
 				//Restaurant function
-				restaurantE(option.election, array);
+				restaurantE(option.electionE, arrayE);
 				break; 
 			case 3:
 				//Deliveries orders
-				seeDeliveriesE(option.election);
+				//seeDeliveriesE(option.electionE);
 				break;
 			case 4:
 				//Restaurant orders
@@ -369,7 +371,7 @@ void menuEmployee(){
 }
 
 //Deliver employee function
-int deliverE(int option1, int array){
+int deliverE(int option1E, int arrayE){
 	pizza option;
 	//Cleaning Buffer
 	fflush(stdin);
@@ -451,11 +453,11 @@ int deliverE(int option1, int array){
 	system ("pause");
 	system("cls");
 	
-	return menuEmployee();
+	return 0;
 }
 
 //Restaurant employee function
-int restaurantE(int option2, int array){
+int restaurantE(int option2E, int arrayE){
 	pizza option;
 	
 	//Cleaning buffer
