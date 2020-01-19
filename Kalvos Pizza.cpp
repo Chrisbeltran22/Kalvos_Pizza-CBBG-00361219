@@ -73,11 +73,19 @@ int main(){
 
 //Menu function
 void menu(){
-	pizza option;
-	int std = 6;
+	pizza option;										  
+	int std = 0;										  
+	int *p;	
+	
+	//Printing on screen 								
+	cout << "Determine la dimension del arreglo: ";	
+	cin >> std;	
+	
+	//Create dinamic record									
+	p = new int [std];
 	
 	//While bucle
-	while(std !=0){
+	while(std != 0){
 		
 		//Printing
 		cout << "Bienvenido a Calvo's pizza" << endl;
@@ -119,6 +127,8 @@ void menu(){
 				break;
 		}
 	}
+	cout << "ERROR\nEl tamano del arreglo no es valido" << endl;
+	return;
 }
 
 //Option 1 function
