@@ -22,7 +22,6 @@ struct pizza{
 	int payment, num1, num2, num3;
 };
 
-
 void menu();
 int deliver(int option1);
 int restaurant(int option2);
@@ -32,26 +31,43 @@ void seeDeliveries(int option3);
 int main(){
 	
 	//Variables
+	int user;
 	char password[5];
 	string passw;
 	passw = "class"; 
 	
-	//While bucle
-	while(password != passw){
+	//Asking for user
+	cout << "Seleccione su usuario\n";
+	cout << "1) ADMINISTRADOR\t\t2) EMPLEADO" << endl;
+	cin >> user;
+	
+	if (user == 1){
+		//Clean screen
+		system ("cls");
 		
-		//Printing
-		cout<<"Bienvenido, por favor introduzca la contrasena para continuar: ";
-		cin>>password;     
+		//While bucle
+		while(password != passw){
+			
+			//Printing
+			cout<<"Bienvenido, por favor introduzca la contrasena para continuar: ";
+			cin>>password;     
+			
+			//Password verification
+				if (password == passw){
+					system("cls");
+					menu();
+				}
+				else cout<<"Contrasena erronea, por favor introduzca de nuevo la contrasena."<<endl;
+			
+			system ("pause");	
+			system("cls");
+		}
+	}
+	else {
+		//Printing on screen and cleaning after
+		cout << "Ingresando al sistema" << endl;
+		system ("pause");
 		
-		//Password verification
-			if (password == passw){
-				system("cls");
-				menu();
-			}
-			else cout<<"Contrasena erronea, por favor introduzca de nuevo la contrasena."<<endl;
-		
-		system ("pause");	
-		system("cls");
 	}
 }
 
@@ -88,7 +104,7 @@ void menu(){
 				break; 
 			case 3:
 				//Deliveries orders
-				seeDeliveries(selection.option3);
+				seeDeliveries(option.election);
 				break;
 			case 4:
 				//Restaurant orders
@@ -122,13 +138,13 @@ int deliver(int option1){
 	//Choosing main Course
 	switch (option.mainC){
 		case 1:
-			option.amount1=11.99 * option.num1;
+			option.amount1= 11.99 * option.num1;
 			break;
 		case 2:
-			option.amount1=6.99 * option.num1;
+			option.amount1= 6.99 * option.num1;
 			break;
 		case 3:
-			option.amount1=8.99 * option.num1;
+			option.amount1= 8.99 * option.num1;
 			break;
 		default:
 			cout << "Seleccione una de las opciones del menu" << endl;
