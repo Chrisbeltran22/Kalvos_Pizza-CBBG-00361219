@@ -31,12 +31,13 @@ void totalSales();
 
 //Main function
 int main(){
+	int opcion = 0;
 	
 	//Variables
 	int user;
 	char password[5];
 	string passw;
-	passw = "class"; 
+	passw = "class";  
 	
 	//Asking for user
 	cout << "Seleccione su usuario\n";
@@ -57,10 +58,37 @@ int main(){
 			//Password verification
 				if (password == passw){
 					system("cls");
-					menu();
+					while(opcion!=8){
+						cout << "\n1. Agregar 1 pedido a domicilio \n";
+				    	cout << "2. Agregar 1 encargo a restaurante\n";
+				    	cout << "3. Ver pedidos a domicilio\n";
+				    	cout << "4. Ver pedidos en restaurante\n";
+						cout << "5. Ver total de venta\n";
+						cout << "6. Cambiar de usuario\n";
+						cout << "7. Borrar ordenes\n";
+					    cout << "Opcion: ";
+				    	cin >> opcion;
+				    	cin.ignore();
+				    	
+				    	switch (opcion){
+				    		case 1: system ("cls"); delivery(); break;
+				    		case 2: system ("cls"); restaurant(); break;
+							case 3: system ("cls"); seeDeliveries(); break;
+				    		case 4: system ("cls"); seeRestaurant(); break;
+				    		case 5: system ("cls"); totalSales(); break;
+							case 6: system ("cls"); main(); break;/*
+							case 7: deleteOrders(); break;
+							*/
+				    	}
+					}
 				}
-				else cout<<"Contrasena erronea, por favor introduzca de nuevo la contrasena."<<endl;
-			
+				else if (user == 2)
+				{
+					cout<<"Ingresando al sistema"<<endl;
+					system ("pause");
+					system ("cls");
+				}
+				else cout << "Contrasena erronea, por favor introduzca de nuevo la contrasena." << endl;
 			system ("pause");	
 			system("cls");
 		}
@@ -69,73 +97,11 @@ int main(){
 		//Printing on screen and cleaning after
 		cout << "Ingresando al sistema" << endl;
 		system ("pause");
-		menuEmployee();
+		//menuEmployee();
 		
 	}
-}
 
-//Menu function
-void menu(){
-	pizza option;										  
-	int array = 0;										  
-	int *p;	
-	
-	//Printing on screen 								
-	cout << "Determine la dimension del arreglo: ";	
-	cin >> array;	
-	
-	//Create dinamic arrangements									
-	p = new int [array];
-	
-	while (array != 0){
-		
-		//Printing
-		cout << "Bienvenido a Calvo's pizza" << endl;
-		cout << "Seleccione el proceso a realizar: " << endl;
-		
-		//Showing menu
-		cout << "1> Agregar 1 pedido a domicilio\n2> Agregar 1 encargo en restaurante3> Ver pedidos a domicilio\n4> Ver encargos en el restaurante" << endl;
-		cout << "5> Ver total de venta\n6> Regresar a seleccion de usuario\n7> Eliminar ordenes" << endl;	
-
-		//Selection menu
-		cin >> option.election;
-		
-		system("cls");
-			
-		//Menu options
-		switch (option.election){
-			case 1:
-				//Deliver function
-				deliver(option.election, array);
-				break;
-			case 2:
-				//Restaurant function
-				restaurant(option.election, array);
-				break; 
-			case 3:
-				//Deliveries orders
-				seeDeliveries(option.election);
-				break;
-			case 4:
-				//Restaurant orders
-				//seeRestaurant(selection.option4);
-				break;
-			case 5:
-				//Total amount
-				//totalSales(selection.option5);
-				break;
-			case 6:
-				//Return main menu
-				main();
-			case 7:
-				deleteOrders();
-			default:
-				cout << "Seleccione una entrada valida por favor" << endl;
-				break;
-		}
-	}
-	cout << "Fin del programa" << endl;
-	return;
+	return 0;
 }
 
 //Option 1 function
