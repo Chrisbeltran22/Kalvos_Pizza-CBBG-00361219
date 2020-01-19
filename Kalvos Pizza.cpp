@@ -336,6 +336,34 @@ void seeRestaurant(){
 	system ("cls");
 }
 
+//Option 5 function
+void totalSales(){
+	string name;
+	float acum = 0;
+	float acum2 = 0;
+	
+	for (int i = 0; i < cantcontinentes; i++){
+		for (int j = 0; j < cantidad; j++){
+			if (name.compare(total2[j].name) != 0){
+				if (name.compare(total2[j].name) != 0){
+					cout << endl;		
+					
+					acum = total[i].amount + acum;
+					acum2 = total2[j].amount + acum2;
+					
+					cout << "Monto total de ordenes es: $" << acum + acum2 << endl;
+					
+					system ("pause");
+					system ("cls");
+						
+				}
+				else cout<<"No se ha encontrado informacion en este continente"<<endl;
+			}
+		}
+	}
+	system ("cls");
+}
+
 int deleteOrders(){
 	pizza option;
 }
