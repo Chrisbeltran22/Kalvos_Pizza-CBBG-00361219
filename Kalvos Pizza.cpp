@@ -25,7 +25,7 @@ struct pizza{
 void menu();
 int deliver(int option1);
 int restaurant(int option2);
-void seeDeliveries(int option3);
+void seeDeliveries(int option3, int amount);
 
 //Main function
 int main(){
@@ -81,7 +81,7 @@ void menu(){
 	cout << "Determine la dimension del arreglo: ";	
 	cin >> std;	
 	
-	//Create dinamic record									
+	//Create dinamic arrangements									
 	p = new int [std];
 	
 	//While bucle
@@ -112,7 +112,7 @@ void menu(){
 				break; 
 			case 3:
 				//Deliveries orders
-				seeDeliveries(option.election);
+				seeDeliveries(option.election, option.amount);
 				break;
 			case 4:
 				//Restaurant orders
@@ -282,15 +282,17 @@ int restaurant(int option2){
 	}
 	else cout << "Ha seleccionado tipo de pago en efectivo." << endl;
 	
+	system ("pause");
 	system("cls");
 	
-	return 0;
+	return option.amount;
 	
 }
 
 //Option 3 function
-void seeDeliveries(int option3){
+void seeDeliveries(int option3, int amount){
 	pizza option;
+	
 	
 }
 
