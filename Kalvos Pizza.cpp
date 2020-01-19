@@ -194,7 +194,7 @@ void delivery(){
 }
 
 //Option 2 function
-int restaurant(int option2, int array){	
+void restaurant(){	
 	//Cleaning buffer
 	fflush(stdin);
 	
@@ -240,7 +240,6 @@ int restaurant(int option2, int array){
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
-				return;
 				break;
 		}
 		cin.ignore();
@@ -259,7 +258,6 @@ int restaurant(int option2, int array){
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
-				return;
 				break;
 		}
 	
@@ -363,12 +361,12 @@ void totalSales(){
 	}
 	system ("cls");
 }
-
+/*
 int deleteOrders(){
 	pizza option;
 }
 
-//Menu employee function
+Menu employee function
 void menuEmployee(){
 	pizza option;										  
 	int arrayE = 0;										  
@@ -587,4 +585,4 @@ int restaurantE(int option2E, int arrayE){
 	
 	return 0;
 	
-}
+}*/
