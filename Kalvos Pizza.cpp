@@ -225,49 +225,59 @@ int restaurant(int option2, int array){
 				break;
 		}
 		cin.ignore();
+		
+		//Printing on screen
+		cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
+		cin>>total2[cantidad].starter;
+
+		//Choosing starter
+		switch (total2[cantidad].starter){
+			case 1:
+				total2[cantidad].amount2= total2[cantidad].amount1 + (2.99 * total2[cantidad].acommpanying);
+				break;
+			case 2:
+				total2[cantidad].amount2= total2[cantidad].amount1 + (1.99 * total2[cantidad].acommpanying);
+				break;
+			default:
+				cout << "Seleccione una de las opciones del menu" << endl;
+				return;
+				break;
+		}
+		cin.ignore();
 	
-	//Printing starter menu
-	cout << "\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:"; cin >> option.starter;
+		//Printing on screen
+		cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
+		cin>>total2[cantidad].drink;
 	
-	//Choosing starter
-	switch (option.starter){
-		case 1:
-			option.amount2 = option.amount1 + (2.99 * option.acommpanying);
-			break;
-		default:
-			option.amount2 = option.amount1 + (1.99 * option.acommpanying);
-			break;
+		//Choosing drink
+		switch (total2[cantidad].drink){
+			case 1:
+				total2[cantidad].amount= total2[cantidad].amount2 + (1.99 * total[cantidad].acommpanying);
+				break;
+			case 2:
+				total2[cantidad].amount= total2[cantidad].amount2 + (0.99 * total[cantidad].acommpanying);
+				break;
+			default:
+				cout << "Seleccione una de las opciones del menu" << endl;
+				return;
+				break;
+		}
+	
+		//Showing total amount of the order 
+		cout << "\nMonto: $" << total2[cantidad].amount;
+		cin.ignore();
+	
+		//Asking for payment method
+		cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
+		cin>>total2[cantidad].payment;
+		cin.ignore();
+	
+		
+		cantidad++;
+		
+		system ("cls");
 	}
-	
-	//Printing drink menu
-	cout << "\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:";	cin >> option.drink;
-	
-	//Choosing drink
-	switch (option.drink){
-		case 1:
-			option.amount = option.amount2 + (1.99 * option.acommpanying);
-			break;
-		default:
-			option.amount = option.amount2 + (0.99 * option.acommpanying);
-			break;
-	}
-	
-	//Showing total amount of the order 
-	cout << "\nMonto: $" << option.amount;
-	
-	//Asking for payment method
-	cout << endl << "\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin >> option.payment;
-	
-	//Verifying payment method selection
-	if (option.payment == 1){
-		cout << "Ha seleccionado tipo de pago con tarjeta." << endl;
-	}
-	else cout << "Ha seleccionado tipo de pago en efectivo." << endl;
-	
-	system ("pause");
-	system("cls");
-	
-	return 0;
+	else cout<<"Lo sentimos, espacio lleno"<<endl;
 	
 }
 
