@@ -105,88 +105,38 @@ int main(){
 }
 
 //Option 1 function
-int deliver(int option1, int array){
-	pizza option;
-	//Cleaning Buffer
-	fflush(stdin);
+void delivery(){
 	
-	//Printing personal information requirements 
-	cout << "Nombre de la persona que realiza el pedido: ";	getline (cin, option.name);
-	cout << endl <<"Direccion: ";	getline (cin, option.address);
-	cout << "\nTelefono: ";	cin >> option.phone;
-	
-	//Printing main Course menu
-	cout << "\nPlato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";	cin >> option.mainC;
-	cout << "Numero de platos que desea: "; cin >> option.num1;
-	
-	//Choosing main Course
-	switch (option.mainC){
-		case 1:
-			option.amount1= 11.99 * option.num1;
-			break;
-		case 2:
-			option.amount1= 6.99 * option.num1;
-			break;
-		case 3:
-			option.amount1= 8.99 * option.num1;
-			break;
-		default:
-			cout << "Seleccione una de las opciones del menu" << endl;
-			break;
-	}
-	
-	//Printing starter menu
-	cout << "\nEntrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion:"; cin >> option.starter;
-	cout << "Numero de entradas que desea: "; cin >> option.num2;
-	
-	//Choosing starter
-	switch (option.starter){
-		case 1:
-			option.amount2= option.amount1 + (2.99 * option.num2);
-			break;
-		case 2:
-			option.amount2= option.amount1 + (1.99 * option.num2);
-			break;
-		default:
-			cout << "Seleccione una de las opciones del menu" << endl;
-			return 0;
-			break;
-	}
-	
-	//Printing drink menu
-	cout << "\nBebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion:"; cin >> option.drink;
-	cout << "Numero de bebidas que desea: "; cin >> option.num3;
+	if (cantcontinentes < 8){
+		cout<<"Nombre de la persona que realiza el pedido: ";
+		getline (cin, total[cantcontinentes].name);
 		
-	//Choosing drink
-	switch (option.drink){
-		case 1:
-			option.amount= option.amount2 + (1.99 * option.num2);
-			break;
-		case 2:
-			option.amount= option.amount1 + (0.99 * option.num2);
-			break;
-		default:
-			cout << "Seleccione una de las opciones del menu" << endl;
-			return 0;
-			break;
-	}
-	
-	//Showing total amount of the order
-	cout << "\nMonto: $" << option.amount;
-	
-	//Asking for payment method
-	cout << endl << "\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion:";	cin >> option.payment;
-	
-	//Verifyin payment method selection
-	if (option.payment==1){
-		cout << "Ha seleccionado tipo de pago con tarjeta." << endl;
-	}
-	else cout << "Ha seleccionado tipo de pago en efectivo." << endl;
-	
-	//Cleaning screen
-	system("cls");
-	
-	return 0;
+		cout<<"Direccion: ";
+		getline (cin, total[cantcontinentes].address);
+		
+		cout<<"Numero de telefono: ";
+		cin >> total[cantcontinentes].phone;
+		
+		cout<<"Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
+		cin>>total[cantcontinentes].mainC;
+		cout << "Numero de platos que desea: "; cin >> total[cantcontinentes].num1;
+		
+		//Choosing main Course
+		switch (total[cantcontinentes].mainC){
+			case 1:
+				total[cantcontinentes].amount1= 11.99 * total[cantcontinentes].num1;
+				break;
+			case 2:
+				total[cantcontinentes].amount1= 6.99 * total[cantcontinentes].num1;
+				break;
+			case 3:
+				total[cantcontinentes].amount1= 8.99 * total[cantcontinentes].num1;
+				break;
+			default:
+				cout << "Seleccione una de las opciones del menu" << endl;
+				break;
+		}
+		cin.ignore();
 }
 
 //Option 2 function
