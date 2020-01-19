@@ -22,6 +22,7 @@ struct pizza{
 	int payment, num1, num2,  num3;
 };
 
+//Prototypes
 void menu();
 void menuEmployee();
 int deliver(int option1, int array);
@@ -360,6 +361,7 @@ int restaurant(int option2, int array){
 //Option 3 function
 void seeDeliveries(int option3){
 	pizza option;
+	
 }
 
 int deleteOrders(){
