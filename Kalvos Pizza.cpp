@@ -31,7 +31,7 @@ void totalSales();
 
 //Main function
 int main(){
-	int opcion = 0;
+	int option = 0;
 	
 	//Variables
 	int user;
@@ -58,7 +58,7 @@ int main(){
 			//Password verification
 				if (password == passw){
 					system("cls");
-					while(opcion!=8){
+					while(option!=8){
 						cout << "\n1. Agregar 1 pedido a domicilio \n";
 				    	cout << "2. Agregar 1 encargo a restaurante\n";
 				    	cout << "3. Ver pedidos a domicilio\n";
@@ -67,10 +67,10 @@ int main(){
 						cout << "6. Cambiar de usuario\n";
 						cout << "7. Borrar ordenes\n";
 					    cout << "Opcion: ";
-				    	cin >> opcion;
+				    	cin >> option;
 				    	cin.ignore();
 				    	
-				    	switch (opcion){
+				    	switch (option){
 				    		case 1: system ("cls"); delivery(); break;
 				    		case 2: system ("cls"); restaurant(); break;
 							case 3: system ("cls"); seeDeliveries(); break;
@@ -222,8 +222,6 @@ void delivery(){
 
 //Option 2 function
 void restaurant(){	
-	//Cleaning buffer
-	fflush(stdin);
 	
 	if (cantidad < 8){
 		//Printing requeriments on screen
@@ -313,7 +311,7 @@ void seeDeliveries(){
 	
 	for (int i = 0; i < cantcontinentes; i++){
 		if (name.compare(total[i].name) != 0){
-			cout << endl;
+			cout << cout << "Orden numero " << i + 1 << endl;
 			cout << endl << "Nombre: " << total[i].name;
 			cout << endl << "Direccion: " << total[i].address;
 			cout << endl << "Telefono: " << total[i].phone;
@@ -341,7 +339,7 @@ void seeRestaurant(){
 	
 	for (int j = 0; j < cantidad; j++){
 		if (name.compare(total2[j].name) != 0){
-			cout << endl;
+			cout << cout << "Orden numero " << j + 1 << endl;
 			cout << endl << "Nombre: " << total2[j].name;
 			cout << endl << "Acompanantes: " << total2[j].acommpanying;
 			cout << endl << "Plato principal:\n1> Pizza\t2> Ensalada\t3>Pasta\nSu seleccion: " << total2[j].mainC;	
@@ -361,33 +359,53 @@ void seeRestaurant(){
 	system ("cls");
 }
 
+
 //Option 5 function
 void totalSales(){
 	string name;
 	float acum = 0;
 	float acum2 = 0;
+	float cant = 0;
 	
 	for (int i = 0; i < cantcontinentes; i++){
-		for (int j = 0; j < cantidad; j++){
-			if (name.compare(total2[j].name) != 0){
-				if (name.compare(total2[j].name) != 0){
-					cout << endl;		
+		if (name.compare(total[i].name) != 0){
+			cout << endl;		
 					
-					acum = total[i].amount + acum;
-					acum2 = total2[j].amount + acum2;
-					
-					cout << "Monto total de ordenes es: $" << acum + acum2 << endl;
-					
-					system ("pause");
-					system ("cls");
-						
-				}
-				else cout<<"No se ha encontrado informacion en este continente"<<endl;
-			}
+			acum = total[i].amount + acum;
+								
 		}
+		else cout<<"No se ha encontrado informacion en este continente"<<endl;
 	}
+	
+	cout << "Monto total de ordenes a domicilio es: $" << acum << endl;
+	
+	for (int j = 0; j < cantidad; j++){
+		if (name.compare(total2[j].name) != 0){
+			cout << endl;		
+					
+			acum2 = total2[j].amount + acum2;
+					
+			cout << "Monto total de ordenes es: $" << acum2 << endl;
+					
+			system ("pause");
+			system ("cls");
+								
+		}
+		else cout<<"No se ha encontrado informacion en este continente"<<endl;
+			
+	}
+	
+	cout << endl;		
+	cout << "Monto total de ordenes en restaurante es: $" << acum2 << endl;
+			
+	system ("pause");
+			
+	cant = acum + acum2;
+	cout << "Monto total de ordenes es: $" << cant << endl;
+	
 	system ("cls");
 }
+
 /*
 int deleteOrders(){
 	pizza option;
