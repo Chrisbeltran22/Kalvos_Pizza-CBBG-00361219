@@ -1,7 +1,5 @@
 #include <iostream>
 #include <stdlib.h>
-#include <conio.h>
-#include <fstream>
 #include <iomanip>
 
 using namespace std; 
@@ -353,7 +351,7 @@ void seeRestaurant(){
 			system ("cls");
 				
 		}
-		else cout<<"No se ha encontrado informacion en este continente"<<endl;
+		else cout<<"No se ha encontrado informacion"<<endl;
 	}
 	
 	system ("cls");
@@ -374,7 +372,7 @@ void totalSales(){
 			acum = total[i].amount + acum;
 								
 		}
-		else cout<<"No se ha encontrado informacion en este continente"<<endl;
+		else cout<<"No se ha encontrado informacion"<<endl;
 	}
 	
 	cout << "Monto total de ordenes a domicilio es: $" << acum << endl;
@@ -391,7 +389,7 @@ void totalSales(){
 			system ("cls");
 								
 		}
-		else cout<<"No se ha encontrado informacion en este continente"<<endl;
+		else cout<<"No se ha encontrado informacion"<<endl;
 			
 	}
 	
