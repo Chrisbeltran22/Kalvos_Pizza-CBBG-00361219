@@ -7,7 +7,7 @@
 using namespace std; 
 
 //struct
-struct continente{
+struct pizza{
 	
 	string name, address;
 	int phone, acommpanying;
@@ -17,10 +17,10 @@ struct continente{
 	
 };
 
-struct continente total[5];
-int cantcontinentes = 0;
-struct continente total2[5];
-int cantidad = 0;
+struct pizza total[5];
+int cantpizza = 0;
+struct pizza total2[5];
+int pizza = 0;
 
 //Prototypes
 void delivery();
@@ -134,30 +134,30 @@ int main(){
 //Option 1 function
 void delivery(){
 	
-	if (cantcontinentes < 8){
+	if (cantpizza < 8){
 		cout<<"Nombre de la persona que realiza el pedido: ";
-		getline (cin, total[cantcontinentes].name);
+		getline (cin, total[cantpizza].name);
 		
 		cout<<"Direccion: ";
-		getline (cin, total[cantcontinentes].address);
+		getline (cin, total[cantpizza].address);
 		
 		cout<<"Numero de telefono: ";
-		cin >> total[cantcontinentes].phone;
+		cin >> total[cantpizza].phone;
 		
 		cout<<"Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
-		cin>>total[cantcontinentes].mainC;
-		cout << "Numero de platos que desea: "; cin >> total[cantcontinentes].num1;
+		cin>>total[cantpizza].mainC;
+		cout << "Numero de platos que desea: "; cin >> total[cantpizza].num1;
 		
 		//Choosing main Course
-		switch (total[cantcontinentes].mainC){
+		switch (total[cantpizza].mainC){
 			case 1:
-				total[cantcontinentes].amount1= 11.99 * total[cantcontinentes].num1;
+				total[cantpizza].amount1= 11.99 * total[cantpizza].num1;
 				break;
 			case 2:
-				total[cantcontinentes].amount1= 6.99 * total[cantcontinentes].num1;
+				total[cantpizza].amount1= 6.99 * total[cantpizza].num1;
 				break;
 			case 3:
-				total[cantcontinentes].amount1= 8.99 * total[cantcontinentes].num1;
+				total[cantpizza].amount1= 8.99 * total[cantpizza].num1;
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
@@ -167,16 +167,16 @@ void delivery(){
 		
 		//Printing on screen
 		cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
-		cin>>total[cantcontinentes].starter;
-		cout << "Numero de entradas que desea: "; cin >> total[cantcontinentes].num2;
+		cin>>total[cantpizza].starter;
+		cout << "Numero de entradas que desea: "; cin >> total[cantpizza].num2;
 	
 		//Choosing starter
-		switch (total[cantcontinentes].starter){
+		switch (total[cantpizza].starter){
 			case 1:
-				total[cantcontinentes].amount2= total[cantcontinentes].amount1 + (2.99 * total[cantcontinentes].num2);
+				total[cantpizza].amount2= total[cantpizza].amount1 + (2.99 * total[cantpizza].num2);
 				break;
 			case 2:
-				total[cantcontinentes].amount2= total[cantcontinentes].amount1 + (1.99 * total[cantcontinentes].num2);
+				total[cantpizza].amount2= total[cantpizza].amount1 + (1.99 * total[cantpizza].num2);
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
@@ -187,16 +187,16 @@ void delivery(){
 		
 		//Printing on screen
 		cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
-		cin>>total[cantcontinentes].drink;
-		cout << "Numero de bebidas que desea: "; cin >> total[cantcontinentes].num3;
+		cin>>total[cantpizza].drink;
+		cout << "Numero de bebidas que desea: "; cin >> total[cantpizza].num3;
 		
 		//Choosing drink
-		switch (total[cantcontinentes].drink){
+		switch (total[cantpizza].drink){
 			case 1:
-				total[cantcontinentes].amount= total[cantcontinentes].amount2 + (1.99 * total[cantcontinentes].num3);
+				total[cantpizza].amount= total[cantpizza].amount2 + (1.99 * total[cantpizza].num3);
 				break;
 			case 2:
-				total[cantcontinentes].amount= total[cantcontinentes].amount1 + (0.99 * total[cantcontinentes].num3);
+				total[cantpizza].amount= total[cantpizza].amount1 + (0.99 * total[cantpizza].num3);
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
@@ -205,15 +205,15 @@ void delivery(){
 		}
 		
 		//Showing total amount of the order
-		cout << "\nMonto: $" << total[cantcontinentes].amount;
+		cout << "\nMonto: $" << total[cantpizza].amount;
 		cin.ignore();
 		
 		cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
-		cin>>total[cantcontinentes].payment;
+		cin>>total[cantpizza].payment;
 		cin.ignore();
 		
 		
-		cantcontinentes++;
+		cantpizza++;
 		
 		system ("cls");
 	}
@@ -221,29 +221,29 @@ void delivery(){
 }
 
 //Option 2 function
-void restaurant(){}
+void restaurant(){	
 	
-	if (cantidad < 8){
+	if (pizza < 8){
 		//Printing requeriments on screen
 		cout << "Nombre de la persona que realiza la reserva: ";
-		getline (cin, total2[cantidad].name);
+		getline (cin, total2[pizza].name);
 		
 		cout << "Acompanantes por mesa: ";
-		cin >> total2[cantidad].acommpanying;
+		cin >> total2[pizza].acommpanying;
 		
 		cout << "Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
-		cin >> total2[cantidad].mainC;
+		cin >> total2[pizza].mainC;
 	
 		//Choosing main Course
-		switch (total2[cantidad].mainC){
+		switch (total2[pizza].mainC){
 			case 1:
-				total2[cantidad].amount1= 11.99 * total2[cantidad].acommpanying;
+				total2[pizza].amount1= 11.99 * total2[pizza].acommpanying;
 				break;
 			case 2:
-				total2[cantidad].amount1= 6.99 * total2[cantidad].acommpanying;
+				total2[pizza].amount1= 6.99 * total2[pizza].acommpanying;
 				break;
 			case 3:
-				total2[cantidad].amount1= 8.99 * total2[cantidad].acommpanying;
+				total2[pizza].amount1= 8.99 * total2[pizza].acommpanying;
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
@@ -253,15 +253,15 @@ void restaurant(){}
 		
 		//Printing on screen
 		cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
-		cin>>total2[cantidad].starter;
+		cin>>total2[pizza].starter;
 
 		//Choosing starter
-		switch (total2[cantidad].starter){
+		switch (total2[pizza].starter){
 			case 1:
-				total2[cantidad].amount2= total2[cantidad].amount1 + (2.99 * total2[cantidad].acommpanying);
+				total2[pizza].amount2= total2[pizza].amount1 + (2.99 * total2[pizza].acommpanying);
 				break;
 			case 2:
-				total2[cantidad].amount2= total2[cantidad].amount1 + (1.99 * total2[cantidad].acommpanying);
+				total2[pizza].amount2= total2[pizza].amount1 + (1.99 * total2[pizza].acommpanying);
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
@@ -271,15 +271,15 @@ void restaurant(){}
 	
 		//Printing on screen
 		cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
-		cin>>total2[cantidad].drink;
+		cin>>total2[pizza].drink;
 	
 		//Choosing drink
-		switch (total2[cantidad].drink){
+		switch (total2[pizza].drink){
 			case 1:
-				total2[cantidad].amount= total2[cantidad].amount2 + (1.99 * total[cantidad].acommpanying);
+				total2[pizza].amount= total2[pizza].amount2 + (1.99 * total[pizza].acommpanying);
 				break;
 			case 2:
-				total2[cantidad].amount= total2[cantidad].amount2 + (0.99 * total[cantidad].acommpanying);
+				total2[pizza].amount= total2[pizza].amount2 + (0.99 * total[pizza].acommpanying);
 				break;
 			default:
 				cout << "Seleccione una de las opciones del menu" << endl;
@@ -287,16 +287,16 @@ void restaurant(){}
 		}
 	
 		//Showing total amount of the order 
-		cout << "\nMonto: $" << total2[cantidad].amount;
+		cout << "\nMonto: $" << total2[pizza].amount;
 		cin.ignore();
 	
 		//Asking for payment method
 		cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
-		cin>>total2[cantidad].payment;
+		cin>>total2[pizza].payment;
 		cin.ignore();
 	
 		
-		cantidad++;
+		pizza++;
 		
 		system ("cls");
 	}
@@ -309,7 +309,7 @@ void seeDeliveries(){
 	string name;
 	cout<<"Pedidos a domicilio: ";
 	
-	for (int i = 0; i < cantcontinentes; i++){
+	for (int i = 0; i < cantpizza; i++){
 		if (name.compare(total[i].name) != 0){
 			cout << cout << "Orden numero " << i + 1 << endl;
 			cout << endl << "Nombre: " << total[i].name;
@@ -337,7 +337,7 @@ void seeRestaurant(){
 	string name;
 	cout<<"Encargos en restaurante: ";
 	
-	for (int j = 0; j < cantidad; j++){
+	for (int j = 0; j < pizza; j++){
 		if (name.compare(total2[j].name) != 0){
 			cout << cout << "Orden numero " << j + 1 << endl;
 			cout << endl << "Nombre: " << total2[j].name;
@@ -367,7 +367,7 @@ void totalSales(){
 	float acum2 = 0;
 	float cant = 0;
 	
-	for (int i = 0; i < cantcontinentes; i++){
+	for (int i = 0; i < cantpizza; i++){
 		if (name.compare(total[i].name) != 0){
 			cout << endl;		
 					
@@ -379,7 +379,7 @@ void totalSales(){
 	
 	cout << "Monto total de ordenes a domicilio es: $" << acum << endl;
 	
-	for (int j = 0; j < cantidad; j++){
+	for (int j = 0; j < pizza; j++){
 		if (name.compare(total2[j].name) != 0){
 			cout << endl;		
 					
