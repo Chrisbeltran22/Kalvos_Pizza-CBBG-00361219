@@ -131,89 +131,111 @@ int main(){
 
 //Option 1 function
 void delivery(){
+	int size;
+	int *A;
 	
+	//Printing on screen
+	cout << "¿Cuantos pedidos desea realizar?" << endl;
+	cin >> size;
+	cin.ignore();
+						
+	A = new int[size];
+	
+	//Validating size of cantpizza
 	if (cantpizza < 8){
-		cout<<"Nombre de la persona que realiza el pedido: ";
-		getline (cin, total[cantpizza].name);
+		for (int i = 0; i < size; i++){	
+						
+			//Printig on screen requirements to order
+			cout<<"Nombre de la persona que realiza el pedido: ";
+			getline (cin, total[cantpizza].name);
+			cout << "\nDireccion:\n\tNumero de casa: ";
+			cin >> total[cantpizza].place.houseNumber;
+			cin.ignore();
+			cout << "\n\tNumero de telefono: ";
+			cin >> total[cantpizza].phone;
+			cin.ignore();
+			cout << "\n\tCiudad: ";
+			getline (cin, total[cantpizza].place.city);
+			cout << "\n\tColonia: ";
+			getline (cin, total[cantpizza].place.suburb);
+			cout << "\n********************Enter para guardar datos********************";
+			cin.ignore();
+			cout << "\n\tDepartamento: ";
+			getline (cin, total[cantpizza].place.state);
 		
-		cout<<"Direccion: ";
-		getline (cin, total[cantpizza].address);
+			cout<<"Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
+			cin>>total[cantpizza].mainC;
+			cout << "Numero de platos que desea: "; cin >> total[cantpizza].num1;
+			
+			//Choosing main Course
+			switch (total[cantpizza].mainC){
+				case 1:
+					total[cantpizza].amount1= 11.99 * total[cantpizza].num1;
+					break;
+				case 2:
+					total[cantpizza].amount1= 6.99 * total[cantpizza].num1;
+					break;
+				case 3:
+					total[cantpizza].amount1= 8.99 * total[cantpizza].num1;
+					break;
+				default:
+					cout << "Seleccione una de las opciones del menu" << endl;
+					break;
+			}
+			cin.ignore();
+			
+			//Printing on screen
+			cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
+			cin>>total[cantpizza].starter;
+			cout << "Numero de entradas que desea: "; cin >> total[cantpizza].num2;
 		
-		cout<<"Numero de telefono: ";
-		cin >> total[cantpizza].phone;
-		
-		cout<<"Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
-		cin>>total[cantpizza].mainC;
-		cout << "Numero de platos que desea: "; cin >> total[cantpizza].num1;
-		
-		//Choosing main Course
-		switch (total[cantpizza].mainC){
-			case 1:
-				total[cantpizza].amount1= 11.99 * total[cantpizza].num1;
-				break;
-			case 2:
-				total[cantpizza].amount1= 6.99 * total[cantpizza].num1;
-				break;
-			case 3:
-				total[cantpizza].amount1= 8.99 * total[cantpizza].num1;
-				break;
-			default:
-				cout << "Seleccione una de las opciones del menu" << endl;
-				break;
+			//Choosing starter
+			switch (total[cantpizza].starter){
+				case 1:
+					total[cantpizza].amount2= total[cantpizza].amount1 + (2.99 * total[cantpizza].num2);
+					break;
+				case 2:
+					total[cantpizza].amount2= total[cantpizza].amount1 + (1.99 * total[cantpizza].num2);
+					break;
+				default:
+					cout << "Seleccione una de las opciones del menu" << endl;
+					return;
+					break;
+			}
+			cin.ignore();
+			
+			//Printing on screen
+			cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
+			cin>>total[cantpizza].drink;
+			cout << "Numero de bebidas que desea: "; cin >> total[cantpizza].num3;
+			
+			//Choosing drink
+			switch (total[cantpizza].drink){
+				case 1:
+					total[cantpizza].amount= total[cantpizza].amount2 + (1.99 * total[cantpizza].num3);
+					break;
+				case 2:
+					total[cantpizza].amount= total[cantpizza].amount1 + (0.99 * total[cantpizza].num3);
+					break;
+				default:
+					cout << "Seleccione una de las opciones del menu" << endl;
+					return;
+					break;
+			}
+			
+			//Showing total amount of the order
+			cout << "\nMonto: $" << total[cantpizza].amount;
+			cin.ignore();
+			
+			cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
+			cin>>total[cantpizza].payment;
+			cin.ignore();
+			
+			
+			cantpizza++;
+			
+			system ("cls");
 		}
-		cin.ignore();
-		
-		//Printing on screen
-		cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
-		cin>>total[cantpizza].starter;
-		cout << "Numero de entradas que desea: "; cin >> total[cantpizza].num2;
-	
-		//Choosing starter
-		switch (total[cantpizza].starter){
-			case 1:
-				total[cantpizza].amount2= total[cantpizza].amount1 + (2.99 * total[cantpizza].num2);
-				break;
-			case 2:
-				total[cantpizza].amount2= total[cantpizza].amount1 + (1.99 * total[cantpizza].num2);
-				break;
-			default:
-				cout << "Seleccione una de las opciones del menu" << endl;
-				return;
-				break;
-		}
-		cin.ignore();
-		
-		//Printing on screen
-		cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
-		cin>>total[cantpizza].drink;
-		cout << "Numero de bebidas que desea: "; cin >> total[cantpizza].num3;
-		
-		//Choosing drink
-		switch (total[cantpizza].drink){
-			case 1:
-				total[cantpizza].amount= total[cantpizza].amount2 + (1.99 * total[cantpizza].num3);
-				break;
-			case 2:
-				total[cantpizza].amount= total[cantpizza].amount1 + (0.99 * total[cantpizza].num3);
-				break;
-			default:
-				cout << "Seleccione una de las opciones del menu" << endl;
-				return;
-				break;
-		}
-		
-		//Showing total amount of the order
-		cout << "\nMonto: $" << total[cantpizza].amount;
-		cin.ignore();
-		
-		cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
-		cin>>total[cantpizza].payment;
-		cin.ignore();
-		
-		
-		cantpizza++;
-		
-		system ("cls");
 	}
 	else cout<<"Lo sentimos, espacio lleno"<<endl;
 }
