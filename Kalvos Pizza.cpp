@@ -4,10 +4,16 @@
 
 using namespace std; 
 
-//struct
+//structs
+struct subpizza{
+	int houseNumber;
+	string city, suburb, state;
+};
+
 struct pizza{
 	
-	string name, address;
+	string name;
+	subpizza place;
 	int phone, acommpanying;
 	int mainC, starter, drink; 
 	float amount1, amount2, amount;
@@ -79,12 +85,6 @@ int main(){
 							*/
 				    	}
 					}
-				}
-				else if (user == 2)
-				{
-					cout<<"Ingresando al sistema"<<endl;
-					system ("pause");
-					system ("cls");
 				}
 				else cout << "Contrasena erronea, por favor introduzca de nuevo la contrasena." << endl;
 			system ("pause");	
