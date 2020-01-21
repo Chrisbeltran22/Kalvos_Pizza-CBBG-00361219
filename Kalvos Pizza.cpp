@@ -220,6 +220,14 @@ void delivery(){
 
 //Option 2 function
 void restaurant(){	
+	int size;
+	int *E;
+	
+	cout << "¿Cuantos pedidos desea realizar?" << endl;
+	cin >> size;
+	cin.ignore();
+				
+	E = new int[size];
 	
 	if (pizza < 8){
 		//Printing requeriments on screen
@@ -305,13 +313,16 @@ void restaurant(){
 //Option 3 function
 void seeDeliveries(){
 	string name;
-	cout<<"Pedidos a domicilio: ";
+	cout<<"\t\tPEDIDOS A DOMICILIO\n";
 	
 	for (int i = 0; i < cantpizza; i++){
 		if (name.compare(total[i].name) != 0){
 			cout << cout << "Orden numero " << i + 1 << endl;
 			cout << endl << "Nombre: " << total[i].name;
-			cout << endl << "Direccion: " << total[i].address;
+			cout << "Direccion:\n\tNumero de casa: " << total[i].place.houseNumber;
+			cout << "\n\tCiudad: " << total[i].place.city;
+			cout << "Direccion:\n\tColonia: " << total[i].place.suburb;
+			cout << "\n\tDepartamento: " << total[i].place.state;
 			cout << endl << "Telefono: " << total[i].phone;
 			cout << endl << "Plato principal:\n1> Pizza\t2> Ensalada\t3>Pasta\nSu seleccion: " << total[i].mainC;	
 			cout << endl << "Numero de platos: " << total[i].num1;
@@ -375,15 +386,11 @@ void totalSales(){
 		else cout<<"No se ha encontrado informacion"<<endl;
 	}
 	
-	cout << "Monto total de ordenes a domicilio es: $" << acum << endl;
-	
 	for (int j = 0; j < pizza; j++){
 		if (name.compare(total2[j].name) != 0){
 			cout << endl;		
 					
 			acum2 = total2[j].amount + acum2;
-					
-			cout << "Monto total de ordenes es: $" << acum2 << endl;
 					
 			system ("pause");
 			system ("cls");
@@ -393,14 +400,16 @@ void totalSales(){
 			
 	}
 	
+	cout << "Monto total de ordenes a domicilio es: $" << acum << endl;
 	cout << endl;		
 	cout << "Monto total de ordenes en restaurante es: $" << acum2 << endl;
 			
-	system ("pause");
+	system ("pause"); cout << endl << endl;
 			
 	cant = acum + acum2;
 	cout << "Monto total de ordenes es: $" << cant << endl;
 	
+	system ("pause");
 	system ("cls");
 }
 
