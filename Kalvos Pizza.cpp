@@ -31,7 +31,7 @@ void delivery();
 void restaurant();
 void seeDeliveries();
 void seeRestaurant();
-void findcustomer();
+void findcustomer(int a);
 void totalSales();
 
 //Main function
@@ -64,6 +64,7 @@ int main(){
 				if (password == passw){
 					system("cls");
 					while(option!=8){
+						int a = 1;
 						cout << "\n1. Agregar 1 pedido a domicilio \n";
 				    	cout << "2. Agregar 1 encargo a restaurante\n";
 				    	cout << "3. Ver pedidos a domicilio\n";
@@ -96,6 +97,7 @@ int main(){
 	}
 	if (user == 2) {
 		while (option!=8){
+			int a = 2;
 			//Printing on screen and cleaning after
 			cout << "Ingresando al sistema" << endl;
 			system ("pause");
