@@ -391,7 +391,39 @@ void seeRestaurant(){
 }
 
 void findcustomer(){
-	
+	string name;
+	string nameComp;
+		
+	if (a == 1){
+		for (int i = 0; i < cantpizza; i++){   
+			cout << "Ingrese el nombre del cliente: "; cin >> nameComp;
+			if (name.compare(total[i].name) != 0){
+				cout << "Orden numero " << i + 1 << endl;
+				cout << endl << "Nombre: " << total[i].name;
+				cout << "Direccion:\n\tNumero de casa: " << total[i].place.houseNumber;
+				cout << "\n\tCiudad: " << total[i].place.city;
+				cout << "Direccion:\n\tColonia: " << total[i].place.suburb;
+				cout << "\n\tDepartamento: " << total[i].place.state;
+				cout << endl << "Telefono: " << total[i].phone;
+				cout << endl << "Plato principal:\n1> Pizza\t2> Ensalada\t3>Pasta\nSu seleccion: " << total[i].mainC;	
+				cout << endl << "Numero de platos: " << total[i].num1;
+				cout << endl << "Entrada: 1> Cheese Rollers\t2> Pizza Hands\nSu seleccion: " << total[i].starter;
+				cout << endl << "Numero de entradas: " << total[i].num2;
+				cout << endl << "Bebida: 1> Gaseosa\t2> Te helado\nSu seleccion: " << total[i].drink;
+				cout << endl << "Numero de bebidas: " << total[i].num3;
+				cout << endl << "Tipo de pago: 1> Tarjeta\t2> Efectivo\nSu seleccion: " << total[i].payment;
+				cout << endl << "Total a pagar: $" << total[i].amount;
+				cout << endl << endl;
+					
+				system ("pause");
+				system ("cls");	
+			}
+			else cout<<"No se ha encontrado informacion"<<endl;
+			
+			return;
+		}
+		
+	}
 }
 //Option 5 function
 void totalSales(){
