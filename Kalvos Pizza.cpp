@@ -31,6 +31,7 @@ void delivery();
 void restaurant();
 void seeDeliveries();
 void seeRestaurant();
+void findcustomer();
 void totalSales();
 
 //Main function
@@ -67,9 +68,10 @@ int main(){
 				    	cout << "2. Agregar 1 encargo a restaurante\n";
 				    	cout << "3. Ver pedidos a domicilio\n";
 				    	cout << "4. Ver pedidos en restaurante\n";
-						cout << "5. Ver total de venta\n";
-						cout << "6. Cambiar de usuario\n";
-						cout << "7. Borrar ordenes\n";
+				    	cout << "5. Buscar pedido por nombre\n";
+						cout << "6. Ver total de venta\n";
+						cout << "7. Cambiar de usuario\n";
+						cout << "8. Borrar ordenes\n";
 					    cout << "Opcion: ";
 				    	cin >> option;
 				    	cin.ignore();
@@ -79,9 +81,10 @@ int main(){
 				    		case 2: system ("cls"); restaurant(); break;
 							case 3: system ("cls"); seeDeliveries(); break;
 				    		case 4: system ("cls"); seeRestaurant(); break;
-				    		case 5: system ("cls"); totalSales(); break;
-							case 6: system ("cls"); main(); break;/*
-							case 7: deleteOrders(); break;
+				    		case 5: system ("cls"); findcustomer(a); break;
+							case 6: system ("cls"); totalSales(); break;
+							case 7: system ("cls"); main(); break;/*
+							case 8: deleteOrders(); break;
 							*/
 				    	}
 					}
@@ -98,18 +101,14 @@ int main(){
 			system ("pause");
 			system ("cls");
 			
-			//Printing on screen
-			cout<<"Ingresando al sistema"<<endl;
-			system ("pause");
-			system ("cls");
-			
 			//Printing menu			
 			cout << "\n1. Agregar 1 pedido a domicilio \n";
 		    cout << "2. Agregar 1 encargo a restaurante\n";
 		    cout << "3. Ver pedidos a domicilio\n";
 		    cout << "4. Ver pedidos en restaurante\n";
-			cout << "5. Ver total de venta\n";
-			cout << "6. Cambiar de usuario\n";
+		    cout << "5. Buscar pedido por nombre\n";
+			cout << "6. Ver total de venta\n";
+			cout << "7. Cambiar de usuario\n";
 			cout << "Opcion: ";
 		    cin >> option;
 		    cin.ignore();
@@ -119,8 +118,9 @@ int main(){
 		    	case 2: system ("cls"); restaurant(); break;
 				case 3: system ("cls"); seeDeliveries(); break;
 		    	case 4: system ("cls"); seeRestaurant(); break;
-		    	case 5: system ("cls"); totalSales(); break;
-				case 6: system ("cls"); main(); break;
+		    	case 5: system ("cls"); findcustomer(); break;
+				case 6: system ("cls"); totalSales(); break;
+				case 7: system ("cls"); main(); break;
 				
 		    }
 		}
@@ -241,7 +241,7 @@ void delivery(){
 }
 
 //Option 2 function
-void restaurant(){	
+void restaurant(){}
 	int size;
 	int *E;
 	
@@ -390,7 +390,9 @@ void seeRestaurant(){
 	system ("cls");
 }
 
-
+void findcustomer(){
+	
+}
 //Option 5 function
 void totalSales(){
 	string name;
