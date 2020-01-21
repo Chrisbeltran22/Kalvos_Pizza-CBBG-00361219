@@ -120,7 +120,7 @@ int main(){
 		    	case 2: system ("cls"); restaurant(); break;
 				case 3: system ("cls"); seeDeliveries(); break;
 		    	case 4: system ("cls"); seeRestaurant(); break;
-		    	case 5: system ("cls"); findcustomer(); break;
+		    	case 5: system ("cls"); findcustomer(a); break;
 				case 6: system ("cls"); totalSales(); break;
 				case 7: system ("cls"); main(); break;
 				
@@ -243,7 +243,7 @@ void delivery(){
 }
 
 //Option 2 function
-void restaurant(){}
+void restaurant(){	
 	int size;
 	int *E;
 	
@@ -254,81 +254,83 @@ void restaurant(){}
 	E = new int[size];
 	
 	if (pizza < 8){
-		//Printing requeriments on screen
-		cout << "Nombre de la persona que realiza la reserva: ";
-		getline (cin, total2[pizza].name);
+		for (int i = 0; i < size; i++){
+			//Printing requeriments on screen
+			cout << "Nombre de la persona que realiza la reserva: ";
+			getline (cin, total2[pizza].name);
+			
+			cout << "Acompanantes por mesa: ";
+			cin >> total2[pizza].acommpanying;
+			
+			cout << "Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
+			cin >> total2[pizza].mainC;
 		
-		cout << "Acompanantes por mesa: ";
-		cin >> total2[pizza].acommpanying;
-		
-		cout << "Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
-		cin >> total2[pizza].mainC;
+			//Choosing main Course
+			switch (total2[pizza].mainC){
+				case 1:
+					total2[pizza].amount1= 11.99 * total2[pizza].acommpanying;
+					break;
+				case 2:
+					total2[pizza].amount1= 6.99 * total2[pizza].acommpanying;
+					break;
+				case 3:
+					total2[pizza].amount1= 8.99 * total2[pizza].acommpanying;
+					break;
+				default:
+					cout << "Seleccione una de las opciones del menu" << endl;
+					break;
+			}
+			cin.ignore();
+			
+			//Printing on screen
+			cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
+			cin>>total2[pizza].starter;
 	
-		//Choosing main Course
-		switch (total2[pizza].mainC){
-			case 1:
-				total2[pizza].amount1= 11.99 * total2[pizza].acommpanying;
-				break;
-			case 2:
-				total2[pizza].amount1= 6.99 * total2[pizza].acommpanying;
-				break;
-			case 3:
-				total2[pizza].amount1= 8.99 * total2[pizza].acommpanying;
-				break;
-			default:
-				cout << "Seleccione una de las opciones del menu" << endl;
-				break;
+			//Choosing starter
+			switch (total2[pizza].starter){
+				case 1:
+					total2[pizza].amount2= total2[pizza].amount1 + (2.99 * total2[pizza].acommpanying);
+					break;
+				case 2:
+					total2[pizza].amount2= total2[pizza].amount1 + (1.99 * total2[pizza].acommpanying);
+					break;
+				default:
+					cout << "Seleccione una de las opciones del menu" << endl;
+					break;
+			}
+			cin.ignore();
+		
+			//Printing on screen
+			cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
+			cin>>total2[pizza].drink;
+		
+			//Choosing drink
+			switch (total2[pizza].drink){
+				case 1:
+					total2[pizza].amount= total2[pizza].amount2 + (1.99 * total[pizza].acommpanying);
+					break;
+				case 2:
+					total2[pizza].amount= total2[pizza].amount2 + (0.99 * total[pizza].acommpanying);
+					break;
+				default:
+					cout << "Seleccione una de las opciones del menu" << endl;
+					break;
+			}
+		
+			//Showing total amount of the order 
+			cout << "\nMonto: $" << total2[pizza].amount;
+			cin.ignore();
+		
+			//Asking for payment method
+			cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
+			cin>>total2[pizza].payment;
+			cin.ignore();
+		
+			
+			pizza++;
+			
+			system ("cls");
 		}
-		cin.ignore();
-		
-		//Printing on screen
-		cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
-		cin>>total2[pizza].starter;
-
-		//Choosing starter
-		switch (total2[pizza].starter){
-			case 1:
-				total2[pizza].amount2= total2[pizza].amount1 + (2.99 * total2[pizza].acommpanying);
-				break;
-			case 2:
-				total2[pizza].amount2= total2[pizza].amount1 + (1.99 * total2[pizza].acommpanying);
-				break;
-			default:
-				cout << "Seleccione una de las opciones del menu" << endl;
-				break;
-		}
-		cin.ignore();
-	
-		//Printing on screen
-		cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
-		cin>>total2[pizza].drink;
-	
-		//Choosing drink
-		switch (total2[pizza].drink){
-			case 1:
-				total2[pizza].amount= total2[pizza].amount2 + (1.99 * total[pizza].acommpanying);
-				break;
-			case 2:
-				total2[pizza].amount= total2[pizza].amount2 + (0.99 * total[pizza].acommpanying);
-				break;
-			default:
-				cout << "Seleccione una de las opciones del menu" << endl;
-				break;
-		}
-	
-		//Showing total amount of the order 
-		cout << "\nMonto: $" << total2[pizza].amount;
-		cin.ignore();
-	
-		//Asking for payment method
-		cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
-		cin>>total2[pizza].payment;
-		cin.ignore();
-	
-		
-		pizza++;
-		
-		system ("cls");
 	}
 	else cout<<"Lo sentimos, espacio lleno"<<endl;
 	
@@ -393,7 +395,7 @@ void seeRestaurant(){
 }
 
 //Option 5 function
-void findcustomer(){
+void findcustomer(int a){
 	string name;
 	string nameComp;
 		
