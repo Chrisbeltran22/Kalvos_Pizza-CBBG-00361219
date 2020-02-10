@@ -92,13 +92,17 @@ struct restaurantT{
 };
 vector<restaurantT> registerRestOrders;
 
-//Prototypes
-void delivery();
-void restaurant();
-void seeDeliveries();
-void seeRestaurant();
-void findcustomer(int a);
-void totalSales();
+//--------------------------------Prototypes------------------------------------
+void menu();
+void orders(int size);
+void orders(float Size);
+void seeDeliverOrders();
+void seeRestaurantOrders();
+void sendOrder();
+void calculateDeliverTime();
+void calculateRestaurantTime();
+void cancelOrder();
+int TotalSales();
 
 //Main function
 int main(){
