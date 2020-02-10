@@ -1,9 +1,9 @@
 #include <iostream> //Libreria para entrada-salida de datos en pantalla
-#include <iomanip>  //
+#include <iomanip>  //Libreria para manipular el formateo de salida
 #include <string>	//Librería para cadenas de texto
 #include <stdlib.h>	//Librería para comandos de limpiar pantalla
-#include <algorithm>
-#include <vector>
+#include <algorithm>//Libreria para manejo de algoritmos matematicos
+#include <vector>	//Libreria para manejo de estructuras unidimensionales
 
 using namespace std; 
 
@@ -18,21 +18,79 @@ struct subpizza{
 	string city, suburb, state;
 };
 
-struct pizza{
-	
-	string name;
-	subpizza place;
-	int phone, acommpanying;
-	int mainC, starter, drink; 
-	float amount1, amount2, amount;
-	int payment, num1, num2,  num3;
-	
-};
+//------------------------------Struct delivery---------------------------------
+struct delivery{
+    int houseNumber;
+    int cellphone;
+    string suburb, city, state;
+    string name;
+	mainCourse mOrder;
+	drink dOrder;
+	starter sOrder;
+	paymentType ptOrder;
+	int idOrderDel = 0, orders = 0;
+	int pizza = 0, pasta = 0, lasagna = 0;
+	int bread = 0, rolls = 0, sticks = 0;
+	int beer = 0, soda = 0, tea = 0;
+	float total;
+	int timePerOrder = 0;
 
-struct pizza total[5];
-int cantpizza = 0;
-struct pizza total2[5];
-int pizza = 0;
+};
+vector<delivery> delOrders;
+
+struct deliveryT{
+    int houseNumber;
+    int cellphone;
+    string suburb, city, state;
+    string name;
+	mainCourse mOrder;
+	drink dOrder;
+	starter sOrder;
+	paymentType ptOrder;
+	int idOrderDel = 0, orders = 0;
+	int pizza = 0, pasta = 0, lasagna = 0;
+	int bread = 0, rolls = 0, sticks = 0;
+	int beer = 0, soda = 0, tea = 0;
+	float total;
+	int timePerOrder = 0;
+	bool verificationD = false;
+
+};
+vector<deliveryT> registerDelOrders;
+
+//------------------------------Struct restaurant-------------------------------
+struct restaurant{
+    string name;
+	mainCourse mOrder;
+	drink dOrder;
+	starter sOrder;
+	paymentType ptOrder;
+	float total;
+    int timePerOrder = 0;
+	int pizza = 0, pasta = 0, lasagna = 0;
+	int bread = 0, rolls = 0, sticks = 0;
+	int beer = 0, soda = 0, tea = 0;
+	int idOrderRest = 0, order = 0;
+    int members;
+};
+vector<restaurant> restOrders;
+
+struct restaurantT{
+    string name;
+	mainCourse mOrder;
+	drink dOrder;
+	starter sOrder;
+	paymentType ptOrder;
+	float total;
+    int timePerOrder = 0;
+	int pizza = 0, pasta = 0, lasagna = 0;
+	int bread = 0, rolls = 0, sticks = 0;
+	int beer = 0, soda = 0, tea = 0;
+	int idOrderRest = 0, order = 0;
+    int members;
+    bool verificationR = false;
+};
+vector<restaurantT> registerRestOrders;
 
 //Prototypes
 void delivery();
