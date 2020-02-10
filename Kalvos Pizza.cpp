@@ -833,6 +833,48 @@ void calculateRestaurantTime(){
     
 }
 
+//----------------------------Cancel orders-------------------------------------
+void cancelOrder(){
+    delivery unDeliver;
+    restaurant unRestaurant;
+    string unNombre; int option;
+    cout << "Seleccione donde desea realizarlo:\n1- Delivery\t2- Restaurante\nSu eleccion: ";
+    cin >> option; cin.ignore();
+    if(option == 1){
+        cout << "Nombre del cliente a despachar: ";
+        getline(cin, unNombre);
+        for(auto iter = delOrders.begin(); iter != delOrders.end(); ++iter){
+            if(iter->name == unNombre){
+            	for (int i = 0; i < delOrders.size(); i++) {
+                    cout << "\nOrden numero:\t" << idOrder;
+                    cout << "\nNombre del cliente:\t" << delOrders[i].name;
+            		cout << "\nDireccion\n\tNumero de casa:\t" << delOrders[i].houseNumber;
+            		cout << "\n\tColonia:\t" << delOrders[i].suburb;
+            		cout << "\n\tMunicipio:\t" << delOrders[i].city;
+            		cout << "\n\tDepartamento:\t" << delOrders[i].state;
+            		cout << "\nTelefono:\t" << delOrders[i].cellphone; cin.ignore();
+                    cout << "\nPlato principal:\n";
+                    cout << " Pizza ha sido ordenada " << delOrders[i].pizza << " veces";
+                    cout << " \nPasta ha sido ordenada " << delOrders[i].pasta << " veces";
+                    cout << " \nLasagna ha sido ordenada " << delOrders[i].lasagna << " veces";
+            		cout << "\nEntrada:\n";
+            		cout << " Pan con ajo ha sido ordenada " << delOrders[i].bread << " veces";
+                    cout << " \nPizza rolls ha sido ordenada " << delOrders[i].rolls << " veces";
+                    cout << " \nPalitos de queso ha sido ordenada " << delOrders[i].sticks << " veces";
+            		cout << "\nBebida:\n";
+            		cout << " Cerveza ha sido ordenada " << delOrders[i].beer << " veces";
+                    cout << " \nSoda ha sido ordenada " << delOrders[i].soda << " veces";
+                    cout << " \nTe ha sido ordenada " << delOrders[i].tea << " veces";
+            		cout << "\nTipo de pago:\t" << delOrders[i].ptOrder;
+            		cout << "\nTotal a pagar:\t" << delOrders[i].total;
+            		cout << "\nTiempo que espero la orden:\t" << delOrders[i].timePerOrder;
+                }
+                iter = delOrders.erase(iter);
+                cout << "\nOrden cancelada.\n";
+                break;
+            }
+        }
+    }
 //Option 6 function
 void totalSales(){
 	string name;
