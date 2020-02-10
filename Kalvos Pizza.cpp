@@ -1,8 +1,16 @@
-#include <iostream>
-#include <stdlib.h>
-#include <iomanip>
+#include <iostream> //Libreria para entrada-salida de datos en pantalla
+#include <iomanip>  //
+#include <string>	//Librería para cadenas de texto
+#include <stdlib.h>	//Librería para comandos de limpiar pantalla
+#include <algorithm>
+#include <vector>
 
 using namespace std; 
+
+enum mainCourse {pizza, pasta, lasagna};
+enum drink {beer, soda, tea};
+enum starter {garlicBread, pizzaRolls, cheeseSticks};
+enum paymentType {card, cash};
 
 //structs
 struct subpizza{
