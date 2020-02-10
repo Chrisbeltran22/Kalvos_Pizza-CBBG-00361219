@@ -440,98 +440,192 @@ void orders(int size){
 	}
 }
 
-//Option 2 function
-void restaurant(){	
-	int size;
-	int *E;
+//---------------------------Restaurant function--------------------------------
+void orders(float Size){
+	restaurant unRestaurant;
+	restaurantT copyOrderR;
+	char decision;
+	int num1 = 0, num2 = 0, num3 = 0;
+	float amount, amount1 = 0, amount2 = 0, amount3 = 0;
 	
-	cout << "¿Cuantos pedidos desea realizar?" << endl;
-	cin >> size;
-	cin.ignore();
+	for (int i = 0; i < Size; i++){
+		int aux = 0;
+		cout << "\nNombre del cliente: "; getline (cin, unRestaurant.name); copyOrderR.name = unRestaurant.name;
+		cout << "\nAcompañantes por mesa: "; cin >> unRestaurant.members; cin.ignore(); copyOrderR.members = unRestaurant.members;
+		
+		cout << "\n¿Desea agregar un plato? (s/n)\t"; cin >> decision; 
+		if (decision == 's' || decision == 'S'){
+            do{
+                num1++;
+                cout << "\nPlato principal:\n1> Pizza $13.99\t2> Pasta $5.55\t3> Lasagna $6.25\nSu seleccion:\t";
+                cin >> aux;
+                    	
+                //Choosing main Course
+               if(aux == 1){
+		            unRestaurant.mOrder = pizza; 
+		            unRestaurant.pizza++;
+		            copyOrderR.mOrder = pizza;
+		            copyOrderR.pizza++;
+				}
+		        else if(aux == 2){
+		            unRestaurant.mOrder = pasta;
+		            unRestaurant.pasta++;
+		            copyOrderR.mOrder = pasta;
+		            copyOrderR.pasta++;
+		        }
+		        else{
+		            unRestaurant.mOrder = lasagna;
+		            unRestaurant.lasagna++;
+		            copyOrderR.mOrder = lasagna;
+		            copyOrderR.lasagna++;
+			    }
+                    
+                //Calculating main course amount
+                    switch (aux){
+                        case 1:
+                            amount1+= 13.99;
+                            break;
+                        case 2:
+                            amount1+= 5.55;
+    						break;
+                        case 3:
+                            amount1+= 6.25;
+    						break;
+                        default:
+    						cout << "\nSeleccione una de las opciones del menu" << endl;
+                            break;
+                    }
+                    cin.ignore();
+                    cout << "\n¿Desea agregar otro plato? (s/n)\t"; cin >> decision;
+            }while(decision == 's' || decision == 'S' );
+        }
+		
+		
+		cout << "\n¿Desea agregar una entrada? (s/n)\t"; cin >> decision;
+		if (decision == 's' || decision == 'S' ){
+			do{	
+                num2++;
+				//Printing on screen
+				cout << "\nEntrada:\n1> Orden de pan con ajo $3.99\n2> Orden de pizza rolls $4.99\n3> Orden de palitos de queso $3.75\nSu seleccion: ";
+				cin >> aux;
 				
-	E = new int[size];
-	
-	if (pizza < 8){
-		for (int i = 0; i < size; i++){
-			//Printing requeriments on screen
-			cout << "Nombre de la persona que realiza la reserva: ";
-			getline (cin, total2[pizza].name);
-			
-			cout << "Acompanantes por mesa: ";
-			cin >> total2[pizza].acommpanying;
-			
-			cout << "Plato principal: 1> Pizza ($11.99)\t2> Ensalada ($6.99)\t3>Pasta ($8.99)\nSu seleccion:\t";
-			cin >> total2[pizza].mainC;
-		
-			//Choosing main Course
-			switch (total2[pizza].mainC){
-				case 1:
-					total2[pizza].amount1= 11.99 * total2[pizza].acommpanying;
-					break;
-				case 2:
-					total2[pizza].amount1= 6.99 * total2[pizza].acommpanying;
-					break;
-				case 3:
-					total2[pizza].amount1= 8.99 * total2[pizza].acommpanying;
-					break;
-				default:
-					cout << "Seleccione una de las opciones del menu" << endl;
-					break;
-			}
-			cin.ignore();
-			
-			//Printing on screen
-			cout<<"Entrada: 1> Cheese Rollers ($2.99, incluye 7 unidades)\t2> Pizza Hands ($1.99, incluye 5 unidades)\nSu seleccion: ";
-			cin>>total2[pizza].starter;
-	
-			//Choosing starter
-			switch (total2[pizza].starter){
-				case 1:
-					total2[pizza].amount2= total2[pizza].amount1 + (2.99 * total2[pizza].acommpanying);
-					break;
-				case 2:
-					total2[pizza].amount2= total2[pizza].amount1 + (1.99 * total2[pizza].acommpanying);
-					break;
-				default:
-					cout << "Seleccione una de las opciones del menu" << endl;
-					break;
-			}
-			cin.ignore();
-		
-			//Printing on screen
-			cout<<"Bebida: 1> Gaseosa ($1.99)\t2> Te helado ($0.99)\nSu seleccion: ";
-			cin>>total2[pizza].drink;
-		
-			//Choosing drink
-			switch (total2[pizza].drink){
-				case 1:
-					total2[pizza].amount= total2[pizza].amount2 + (1.99 * total[pizza].acommpanying);
-					break;
-				case 2:
-					total2[pizza].amount= total2[pizza].amount2 + (0.99 * total[pizza].acommpanying);
-					break;
-				default:
-					cout << "Seleccione una de las opciones del menu" << endl;
-					break;
-			}
-		
-			//Showing total amount of the order 
-			cout << "\nMonto: $" << total2[pizza].amount;
-			cin.ignore();
-		
-			//Asking for payment method
-			cout<<"\nTipo de pago: \n1> Tarjeta\n2> Efectivo\nSu seleccion: ";
-			cin>>total2[pizza].payment;
-			cin.ignore();
-		
-			
-			pizza++;
-			
-			system ("cls");
+				//Choosing starter
+				if(aux == 1){
+		            unRestaurant.sOrder = garlicBread;
+		            unRestaurant.bread++;
+		            copyOrderR.sOrder = garlicBread;
+		            copyOrderR.bread++;
+				}
+		        else if(aux == 2){
+		            unRestaurant.sOrder = pizzaRolls;
+		            unRestaurant.rolls++;
+		            copyOrderR.sOrder = pizzaRolls;
+		            copyOrderR.rolls++;
+		        }
+		        else{
+		            unRestaurant.sOrder = cheeseSticks;
+					unRestaurant.sticks++;
+					copyOrderR.sOrder = cheeseSticks;
+		            copyOrderR.sticks++;
+		        }
+					
+				//Calculating starter amount
+				switch (aux){
+					case 1:
+						amount2+= 3.99;
+						break;
+					case 2:
+						amount2+= 4.99;
+						break;
+					case 3:
+						amount2+= 3.75;
+						break;
+					default:
+						cout << "\nSeleccione una de las opciones del menu" << endl;
+						return;
+						break;
+				}
+				cin.ignore();
+				cout << "\n¿Desea agregar otra entrada? (s/n)\t"; cin >> decision; 
+			}while(decision == 's' || decision == 'S' );
 		}
+		
+		cout << "\n¿Desea agregar una bebida? (s/n)\t"; cin >> decision;
+		if (decision == 's' || decision == 'S'){
+			do{
+				num3++;
+				//Printing on screen
+				cout << "\nBebida:\n1> Cerverza $1.99\t2> Soda $0.95\t3> Te helado $1.15\nSu seleccion: ";
+				cin >> aux;
+								
+				if(aux == 1){
+		            unRestaurant.dOrder = beer;
+		            unRestaurant.beer++;
+		            copyOrderR.dOrder = beer;
+		            copyOrderR.beer++;
+				}
+		        else if(aux == 2){
+		            unRestaurant.dOrder = soda;
+		            unRestaurant.soda++;
+		            copyOrderR.dOrder = soda;
+		            copyOrderR.soda++;
+		        }
+		        else{
+		            unRestaurant.dOrder = tea;
+		            unRestaurant.tea++;
+		            copyOrderR.dOrder = tea;
+		            copyOrderR.tea++;
+		        }
+                  
+				//Choosing drink
+				switch (aux){
+					case 1:
+						amount3+= 1.99;
+						break;
+					case 2:
+						amount3+= 0.95;
+						break;
+					case 3:
+						amount3+= 1.15;
+						break;
+					default:
+						cout << "\nSeleccione una de las opciones del menu" << endl;
+						return;
+						break;
+				}
+				cout << "\n¿Desea agregar otra bebida? (s/n)\t"; cin >> decision; 
+			}while(decision == 's' || decision == 'S' );
+		}
+		//Calculating total of the order
+		amount = amount1 + amount2 + amount3;
+		//Calculating time of the order
+		unRestaurant.timePerOrder += ((1.10 * num1) + (1.5 * num2) + (1.35 * num3));
+		copyOrderR.timePerOrder += ((1.10 * num1) + (1.5 * num2) + (1.35 * num3));
+		cout << "Tiempo de espera de su orden:\t" << unRestaurant.timePerOrder;
+		//Showing amount of the order
+		cout << "\nMonto: $" << amount;
+		cin.ignore();
+		unRestaurant.total = amount;
+		copyOrderR.total = amount;
+		
+		cout << "\nTipo de pago:\n\t 1> Tarjeta\t2> Efectivo\nSu seleccion: ";
+		cin >> aux;
+		if(aux == 1){
+            unRestaurant.ptOrder = card;
+            copyOrderR.ptOrder = card;
+		}
+        else{
+            unRestaurant.ptOrder = cash;
+            copyOrderR.ptOrder = cash;
+	    }
+		
+        unRestaurant.idOrderRest = idOrder++;
+        copyOrderR.idOrderRest = unRestaurant.idOrderRest;
+        copyOrderR.verificationR = false;
+        
+        restOrders.insert(restOrders.end(), unRestaurant);
+        registerRestOrders.insert(registerRestOrders.end(), copyOrderR);
 	}
-	else cout<<"Lo sentimos, espacio lleno"<<endl;
-	
 }
 
 //Option 3 function
