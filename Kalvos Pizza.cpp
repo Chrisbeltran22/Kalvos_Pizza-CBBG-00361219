@@ -115,100 +115,10 @@ int recursiveId(int n){
     }
 }
 
-//Main function
+/------------------------------Main function-----------------------------------
 int main(){
-	int option = 0;
-	
-	//Variables
-	int user;
-	char password[5];
-	string passw;
-	passw = "class";  
-	
-	//Asking for user
-	cout << "Seleccione su usuario\n";
-	cout << "1) ADMINISTRADOR\t\t2) EMPLEADO" << endl;
-	cin >> user;
-	
-	if (user == 1){
-		//Clean screen
-		system ("cls");
-		
-		//While bucle
-		while(password != passw){
-			
-			//Printing
-			cout<<"Bienvenido, por favor introduzca la contrasena para continuar: ";
-			cin>>password;     
-			
-			//Password verification
-				if (password == passw){
-					system("cls");
-					while(option!=8){
-						int a = 1;
-						cout << "\n1. Agregar 1 pedido a domicilio \n";
-				    	cout << "2. Agregar 1 encargo a restaurante\n";
-				    	cout << "3. Ver pedidos a domicilio\n";
-				    	cout << "4. Ver pedidos en restaurante\n";
-				    	cout << "5. Buscar pedido por nombre\n";
-						cout << "6. Ver total de venta\n";
-						cout << "7. Cambiar de usuario\n";
-						cout << "8. Borrar ordenes\n";
-					    cout << "Opcion: ";
-				    	cin >> option;
-				    	cin.ignore();
-				    	
-				    	switch (option){
-				    		case 1: system ("cls"); delivery(); break;
-				    		case 2: system ("cls"); restaurant(); break;
-							case 3: system ("cls"); seeDeliveries(); break;
-				    		case 4: system ("cls"); seeRestaurant(); break;
-				    		case 5: system ("cls"); findcustomer(a); break;
-							case 6: system ("cls"); totalSales(); break;
-							case 7: system ("cls"); main(); break;/*
-							case 8: deleteOrders(); break;
-							*/
-				    	}
-					}
-				}
-				else cout << "Contrasena erronea, por favor introduzca de nuevo la contrasena." << endl;
-			system ("pause");	
-			system("cls");
-		}
-	}
-	if (user == 2) {
-		while (option!=8){
-			int a = 2;
-			//Printing on screen and cleaning after
-			cout << "Ingresando al sistema" << endl;
-			system ("pause");
-			system ("cls");
-			
-			//Printing menu			
-			cout << "\n1. Agregar 1 pedido a domicilio \n";
-		    cout << "2. Agregar 1 encargo a restaurante\n";
-		    cout << "3. Ver pedidos a domicilio\n";
-		    cout << "4. Ver pedidos en restaurante\n";
-		    cout << "5. Buscar pedido por nombre\n";
-			cout << "6. Ver total de venta\n";
-			cout << "7. Cambiar de usuario\n";
-			cout << "Opcion: ";
-		    cin >> option;
-		    cin.ignore();
-					    	
-			switch (option){
-		    	case 1: system ("cls"); delivery(); break;
-		    	case 2: system ("cls"); restaurant(); break;
-				case 3: system ("cls"); seeDeliveries(); break;
-		    	case 4: system ("cls"); seeRestaurant(); break;
-		    	case 5: system ("cls"); findcustomer(a); break;
-				case 6: system ("cls"); totalSales(); break;
-				case 7: system ("cls"); main(); break;
-				
-		    }
-		}
-	}
-
+    
+	menu();
 	return 0;
 }
 
