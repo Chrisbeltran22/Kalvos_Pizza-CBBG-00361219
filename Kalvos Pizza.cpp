@@ -660,31 +660,29 @@ void seeDeliverOrders(){
     system("cls");
 }
 
-//Option 4 function
-void seeRestaurant(){
-	string name;
-	cout<<"Encargos en restaurante: ";
-	
-	for (int j = 0; j < pizza; j++){
-		if (name.compare(total2[j].name) != 0){
-			cout << cout << "Orden numero " << j + 1 << endl;
-			cout << endl << "Nombre: " << total2[j].name;
-			cout << endl << "Acompanantes: " << total2[j].acommpanying;
-			cout << endl << "Plato principal:\n1> Pizza\t2> Ensalada\t3>Pasta\nSu seleccion: " << total2[j].mainC;	
-			cout << endl << "Entrada: 1> Cheese Rollers\t2> Pizza Hands\nSu seleccion: " << total2[j].starter;
-			cout << endl << "Bebida: 1> Gaseosa\t2> Te helado\nSu seleccion: " << total2[j].drink;
-			cout << endl << "Tipo de pago: 1> Tarjeta\t2> Efectivo\nSu seleccion: " << total2[j].payment;
-			cout << endl << "Total a pagar: $" << total2[j].amount;
-			cout << endl;
-			
-			system ("pause");
-			system ("cls");
-				
-		}
-		else cout<<"No se ha encontrado informacion"<<endl;
-	}
-	
-	system ("cls");
+//-----------------------Check orders at restaurant-----------------------------
+void seeRestaurantOrders(){
+    for (int i = 0; i < restOrders.size(); i++) {
+    	cout << "Orden numero:\t" << idOrder;
+        cout << "\nNombre del cliente:\t" << restOrders[i].name;
+		cout << "\nPlato principal:\n";
+		cout << " Pizza ha sido ordenada " << restOrders[i].pizza << " veces";
+        cout << " \nPasta ha sido ordenada " << restOrders[i].pasta << " veces";
+        cout << " \nLasagna ha sido ordenada " << restOrders[i].lasagna << " veces";
+		cout << "\nEntrada:\n";
+		cout << " Pan con ajo ha sido ordenada " << restOrders[i].bread << " veces";
+        cout << " \nPizza rolls ha sido ordenada " << restOrders[i].rolls << " veces";
+        cout << " \nPalitos de queso ha sido ordenada " << restOrders[i].sticks << " veces";
+		cout << "\nBebida:\n";
+		cout << " Cerveza ha sido ordenada " << restOrders[i].beer << " veces";
+        cout << " \nSoda ha sido ordenada " << restOrders[i].soda << " veces";
+        cout << " \nTe ha sido ordenada " << restOrders[i].tea << " veces";
+		cout << "\nTipo de pago:\ntarjeta(0)\tefectivo(1)\n" << restOrders[i].ptOrder;
+		cout << "\nTotal a pagar:\t$" << restOrders[i].total;
+		cout << "\nTiempo de espera de la orden:\t" << restOrders[i].timePerOrder;
+    } 
+    cout << "\n\n----------------NO HAY DATOS A MOSTRAR----------------\n\n";
+    system("pause");
 }
 
 //Option 5 function
