@@ -810,6 +810,29 @@ void sendOrder(){
     }
 }
 
+/------------------Check average time of deliveries orders---------------------
+void calculateDeliverTime(){
+    int total = 0;
+    for (int i = 0; i < delOrders.size(); i++) {
+	    cout << "Tiempo de espera de orden #" << i + 1 << " a domicilio es: " << delOrders[i].timePerOrder << " minutos\n";
+	    total += delOrders[i].timePerOrder;
+    }
+    cout << "Tiempo de espera total es: " << total << " minutos\n";
+	system("pause");
+}
+
+//-----------------Check average time of orders at restaurant-------------------
+void calculateRestaurantTime(){
+    int total = 0;
+    for (int i = 0; i < restOrders.size(); i++) {
+	    cout << "Tiempo de espera de orden #" << i + 1 << " a domicilio es: " << restOrders[i].timePerOrder << " minutos\n";
+	    total += restOrders[i].timePerOrder;
+    }
+    cout << "Tiempo de espera total es: " << total << " minutos\n";
+	system("pause");
+    
+}
+
 //Option 6 function
 void totalSales(){
 	string name;
