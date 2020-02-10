@@ -115,14 +115,14 @@ int recursiveId(int n){
     }
 }
 
-/------------------------------Main function-----------------------------------
+//------------------------------Main function-----------------------------------
 int main(){
     
 	menu();
 	return 0;
 }
 
-/------------------------------Menu function-----------------------------------
+//------------------------------Menu function-----------------------------------
 void menu(){
 
 	//Variables
@@ -250,7 +250,7 @@ void menu(){
 	return menu();
 }
 
-/----------------------------Delivery function---------------------------------
+//----------------------------Delivery function---------------------------------
 void orders(int size){
     delivery unDeliver;
     deliveryT copyOrderD;
@@ -628,7 +628,7 @@ void orders(float Size){
 	}
 }
 
-///--------------------------Check orders at home--------------------------------
+//--------------------------Check orders at home--------------------------------
 void seeDeliverOrders(){
     for (int i = 0; i < delOrders.size(); i++) {
     	cout << "\nOrden numero:\t" << idOrder;
@@ -810,7 +810,7 @@ void sendOrder(){
     }
 }
 
-/------------------Check average time of deliveries orders---------------------
+//------------------Check average time of deliveries orders---------------------
 void calculateDeliverTime(){
     int total = 0;
     for (int i = 0; i < delOrders.size(); i++) {
