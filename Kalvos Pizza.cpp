@@ -907,48 +907,24 @@ void cancelOrder(){
         }
     }
 }
-//Option 6 function
-void totalSales(){
-	string name;
-	float acum = 0;
-	float acum2 = 0;
-	float cant = 0;
-	
-	for (int i = 0; i < cantpizza; i++){
-		if (name.compare(total[i].name) != 0){
-			cout << endl;		
-					
-			acum = total[i].amount + acum;
-								
-		}
-		else cout<<"No se ha encontrado informacion"<<endl;
-	}
-	
-	for (int j = 0; j < pizza; j++){
-		if (name.compare(total2[j].name) != 0){
-			cout << endl;		
-					
-			acum2 = total2[j].amount + acum2;
-					
-			system ("pause");
-			system ("cls");
-								
-		}
-		else cout<<"No se ha encontrado informacion"<<endl;
-			
-	}
-	
-	cout << "Monto total de ordenes a domicilio es: $" << acum << endl;
-	cout << endl;		
-	cout << "Monto total de ordenes en restaurante es: $" << acum2 << endl;
-			
-	system ("pause"); cout << endl << endl;
-			
-	cant = acum + acum2;
-	cout << "Monto total de ordenes es: $" << cant << endl;
-	
-	system ("pause");
-	system ("cls");
+
+//----------------------------Total Sales---------------------------------------
+int TotalSales(){
+    deliveryT copyOrderD;
+    restaurantT copyOrderR;
+    float total = 0, totalD = 0, totalR = 0;
+    
+    if(copyOrderD.verificationD = true || copyOrderR.verificationR == true){
+        for (int i = 0; i < registerDelOrders.size(); i++) {
+            totalD += registerDelOrders[i].total;
+        }
+        for (int i = 0; i < registerRestOrders.size(); i++) {
+            totalR += registerRestOrders[i].total;
+        }
+        total = totalD + totalR;
+    }
+
+    cout << "Total de ingreso de ordenes:\t$" << total << endl;
 }
 
 
