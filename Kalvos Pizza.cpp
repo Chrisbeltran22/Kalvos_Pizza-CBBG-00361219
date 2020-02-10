@@ -104,6 +104,17 @@ void calculateRestaurantTime();
 void cancelOrder();
 int TotalSales();
 
+int idOrder = 0;
+//----------------------------Recursive id order--------------------------------
+int recursiveId(int n){ 
+    if(n == 0){
+        return 0;
+    }
+    else{
+        return n + recursiveId(n -1);
+    }
+}
+
 //Main function
 int main(){
 	int option = 0;
