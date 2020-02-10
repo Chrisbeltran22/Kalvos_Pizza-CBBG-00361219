@@ -685,70 +685,129 @@ void seeRestaurantOrders(){
     system("pause");
 }
 
-//Option 5 function
-void findcustomer(int a){
-	string name;
-	string nameComp;
-		
-	if (a == 1){
-		for (int i = 0; i < cantpizza; i++){   
-			cout << "Ingrese el nombre del cliente: "; cin >> nameComp;
-			if (name.compare(total[i].name) != 0){
-				cout << "Orden numero " << i + 1 << endl;
-				cout << endl << "Nombre: " << total[i].name;
-				cout << "Direccion:\n\tNumero de casa: " << total[i].place.houseNumber;
-				cout << "\n\tCiudad: " << total[i].place.city;
-				cout << "Direccion:\n\tColonia: " << total[i].place.suburb;
-				cout << "\n\tDepartamento: " << total[i].place.state;
-				cout << endl << "Telefono: " << total[i].phone;
-				cout << endl << "Plato principal:\n1> Pizza\t2> Ensalada\t3>Pasta\nSu seleccion: " << total[i].mainC;	
-				cout << endl << "Numero de platos: " << total[i].num1;
-				cout << endl << "Entrada: 1> Cheese Rollers\t2> Pizza Hands\nSu seleccion: " << total[i].starter;
-				cout << endl << "Numero de entradas: " << total[i].num2;
-				cout << endl << "Bebida: 1> Gaseosa\t2> Te helado\nSu seleccion: " << total[i].drink;
-				cout << endl << "Numero de bebidas: " << total[i].num3;
-				cout << endl << "Tipo de pago: 1> Tarjeta\t2> Efectivo\nSu seleccion: " << total[i].payment;
-				cout << endl << "Total a pagar: $" << total[i].amount;
-				cout << endl << endl;
-					
-				system ("pause");
-				system ("cls");	
-			}
-			else cout<<"No se ha encontrado informacion"<<endl;
-			
-			return;
-		}
-		
-	}
-	else{
-		for (int i = 0; i < cantpizza; i++){   
-			cout << "Ingrese el nombre del cliente: "; cin >> nameComp;
-			if (name.compare(total[i].name) != 0){
-				cout << "Orden numero " << i + 1 << endl;
-				cout << endl << "Nombre: " << total[i].name;
-				cout << "Direccion:\n\tNumero de casa: " << total[i].place.houseNumber;
-				cout << "\n\tCiudad: " << total[i].place.city;
-				cout << "Direccion:\n\tColonia: " << total[i].place.suburb;
-				cout << "\n\tDepartamento: " << total[i].place.state;
-				cout << endl << "Telefono: " << total[i].phone;
-				cout << endl << "Plato principal:\n1> Pizza\t2> Ensalada\t3>Pasta\nSu seleccion: " << total[i].mainC;	
-				cout << endl << "Numero de platos: " << total[i].num1;
-				cout << endl << "Entrada: 1> Cheese Rollers\t2> Pizza Hands\nSu seleccion: " << total[i].starter;
-				cout << endl << "Numero de entradas: " << total[i].num2;
-				cout << endl << "Bebida: 1> Gaseosa\t2> Te helado\nSu seleccion: " << total[i].drink;
-				cout << endl << "Numero de bebidas: " << total[i].num3;
-				cout << endl << "Tipo de pago: 1> Tarjeta\t2> Efectivo\nSu seleccion: " << total[i].payment;
-				cout << endl << "Total a pagar: $" << total[i].amount;
-				cout << endl << endl;
-					
-				system ("pause");
-				system ("cls");	
-				return;
-			}
-			else cout<<"No se ha encontrado informacion"<<endl;
-		}
-		return;
-	}
+//-------------------------Select and send orders-------------------------------
+void sendOrder(){
+    delivery unDeliver;
+    deliveryT copyOrderD;
+    restaurantT copyOrderR;
+    restaurant unRestaurant;
+    int option;
+    
+    cout << "Seleccione donde desea realizarlo:\n1- Delivery\t2- Restaurante\nSu eleccion: ";
+    cin >> option; cin.ignore();
+    
+    if(option == 1){
+        string unNombre;
+        cout << "Nombre del cliente: ";
+        getline(cin, unNombre);
+        
+        for(auto iter = delOrders.begin(); iter != delOrders.end(); ++iter){
+            if(iter->name == unNombre){
+                for (int i = 0; i < delOrders.size(); i++) {
+                    copyOrderD.verificationD = true;
+                    delOrders[i].orders = 1;
+                    copyOrderD.orders = delOrders[i].orders;
+                    cout << "\nOrden numero:\t" << idOrder;
+                    copyOrderD.idOrderDel = idOrder;
+                    cout << "\nNombre del cliente:\t" << delOrders[i].name;
+                    copyOrderD.name = delOrders[i].name;
+            		cout << "\nDireccion\n\tNumero de casa:\t" << delOrders[i].houseNumber;
+            		copyOrderD.houseNumber = delOrders[i].houseNumber;
+            		cout << "\n\tColonia:\t" << delOrders[i].suburb;
+            		copyOrderD.suburb = delOrders[i].suburb;
+            		cout << "\n\tMunicipio:\t" << delOrders[i].city;
+            		copyOrderD.city = delOrders[i].city;
+            		cout << "\n\tDepartamento:\t" << delOrders[i].state;
+            		copyOrderD.state = delOrders[i].state;
+            		cout << "\nTelefono:\t" << delOrders[i].cellphone; cin.ignore();
+            		copyOrderD.cellphone = delOrders[i].cellphone;
+                    cout << "\nPlato principal:\n";
+                    cout << " Pizza ha sido ordenada " << delOrders[i].pizza << " veces";
+                    copyOrderD.pizza = delOrders[i].pizza;
+                    cout << " \nPasta ha sido ordenada " << delOrders[i].pasta << " veces";
+                    copyOrderD.pasta = delOrders[i].pasta;
+                    cout << " \nLasagna ha sido ordenada " << delOrders[i].lasagna << " veces";
+                    copyOrderD.lasagna = delOrders[i].lasagna;
+            		cout << "\nEntrada:\n";
+            		cout << " Pan con ajo ha sido ordenada " << delOrders[i].bread << " veces";
+            		copyOrderD.bread = delOrders[i].bread;
+                    cout << " \nPizza rolls ha sido ordenada " << delOrders[i].rolls << " veces";
+                    copyOrderD.rolls = delOrders[i].rolls;
+                    cout << " \nPalitos de queso ha sido ordenada " << delOrders[i].sticks << " veces";
+                    copyOrderD.sticks = delOrders[i].sticks;
+            		cout << "\nBebida:\n";
+            		cout << " Cerveza ha sido ordenada " << delOrders[i].beer << " veces";
+            		copyOrderD.beer = delOrders[i].beer;
+                    cout << " \nSoda ha sido ordenada " << delOrders[i].soda << " veces";
+                    copyOrderD.soda = delOrders[i].soda;
+                    cout << " \nTe ha sido ordenada " << delOrders[i].tea << " veces";
+                    copyOrderD.tea = delOrders[i].tea;
+            		cout << "\nTipo de pago:\ntarjeta(0)\tefectivo(1)\n" << delOrders[i].ptOrder;
+            		copyOrderD.ptOrder = delOrders[i].ptOrder;
+            		cout << "\nTotal a pagar:\t$" << delOrders[i].total;
+            		copyOrderD.total = delOrders[i].total;
+            		cout << "\nTiempo que espero la orden:\t" << delOrders[i].timePerOrder;
+            		copyOrderD.timePerOrder = delOrders[i].timePerOrder;
+                }
+                registerDelOrders.insert(registerDelOrders.end(), copyOrderD);
+                iter = delOrders.erase(iter);
+                cout << "\nOrden entregada a domicilio.\n";
+                break;
+            }
+        }
+        cout << "\n\n----------------NO HAY DATOS A MOSTRAR----------------\n\n";
+        system("pause");
+    }
+    else if(option == 2){	
+        string unNombre;
+        cout << "Nombre del cliente: ";
+        getline(cin, unNombre);
+        
+        for(auto iter = restOrders.begin(); iter != restOrders.end(); ++iter){
+            if(iter->name == unNombre){
+            	for (int i = 0; i < restOrders.size(); i++) {
+            	    restOrders[i].order = 1;
+            	    copyOrderR.order = 1;
+            	    copyOrderR.verificationR = true;
+                    cout << "Orden numero:\t" << idOrder;
+                    cout << "\nNombre del cliente:\t" << restOrders[i].name;
+            		cout << "\nPlato principal:\n";
+                    cout << " Pizza ha sido ordenada " << restOrders[i].pizza << " veces";
+                    copyOrderR.pizza = restOrders[i].pizza;
+                    cout << " \nPasta ha sido ordenada " << restOrders[i].pasta << " veces";
+                    copyOrderR.pasta = restOrders[i].pasta;
+                    cout << " \nLasagna ha sido ordenada " << restOrders[i].lasagna << " veces";
+                    copyOrderR.lasagna = restOrders[i].lasagna;
+            		cout << "\nEntrada:\n";
+            		cout << " Pan con ajo ha sido ordenada " << restOrders[i].bread << " veces";
+            		copyOrderR.bread = restOrders[i].bread;
+                    cout << " \nPizza rolls ha sido ordenada " << restOrders[i].rolls << " veces";
+                    copyOrderR.rolls = restOrders[i].rolls;
+                    cout << " \nPalitos de queso ha sido ordenada " << restOrders[i].sticks << " veces";
+                    copyOrderR.sticks = restOrders[i].sticks;
+            		cout << "\nBebida:\n";
+            		cout << " Cerveza ha sido ordenada " << restOrders[i].beer << " veces";
+            		copyOrderR.beer = restOrders[i].beer;
+                    cout << " \nSoda ha sido ordenada " << restOrders[i].soda << " veces";
+                    copyOrderR.soda = restOrders[i].soda;
+                    cout << " \nTe ha sido ordenada " << restOrders[i].tea << " veces";
+                    copyOrderR.tea = restOrders[i].tea;
+            		cout << "\nTipo de pago:\ntarjeta(0)\tefectivo(1)\n" << restOrders[i].ptOrder;
+            		copyOrderR.ptOrder = restOrders[i].ptOrder;
+            		cout << "\nTotal a pagar:\t$" << restOrders[i].total;
+            		copyOrderR.total = restOrders[i].total;
+            		cout << "\nTiempo que espero la orden:\t" << restOrders[i].timePerOrder;
+            		copyOrderR.timePerOrder = restOrders[i].timePerOrder;
+                }
+                registerRestOrders.insert(registerRestOrders.end(), copyOrderR);
+                iter = restOrders.erase(iter);
+                cout << "\nOrden servida en restaurante.\n";
+                break;
+            }
+        }
+        cout << "\n\n----------------NO HAY DATOS A MOSTRAR----------------\n\n";
+        system("pause");
+    }
 }
 
 //Option 6 function
