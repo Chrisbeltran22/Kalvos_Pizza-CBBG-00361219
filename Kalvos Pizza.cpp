@@ -122,6 +122,134 @@ int main(){
 	return 0;
 }
 
+/------------------------------Menu function-----------------------------------
+void menu(){
+
+	//Variables
+	int user;
+	char password[5];
+	string passw;
+	passw = "class"; 
+	
+	//Asking for user
+	cout << "Seleccione su usuario\n";
+	cout << "1) ADMINISTRADOR\t\t2) EMPLEADO" << endl;
+	cin >> user;
+	
+	if (user == 1){
+		//Clean screen
+		system ("cls");
+		bool validation = true;
+		//While bucle
+		do{
+			//Printing
+			cout<<"Bienvenido, por favor introduzca la contrasena para continuar: ";
+			cin>>password;     
+			
+			//Password verification
+			if (password == passw){
+				system("cls");
+				//Do-While bucle
+				do{
+					int size = 0, option = 0;
+					float Size = 0;
+					//Show on screen
+					cout << "\n1. Agregar orden a domicilio \n";
+					cout << "2. Agregar orden a restaurante\n";
+					cout << "3. Ver ordenes a domicilio\n";
+					cout << "4. Ver ordenes en restaurante\n";
+					cout << "5. Despachar ordenes a domicilio o restaurante\n";
+					cout << "6. Ver tiempo promedio de espera domicilio\n";
+					cout << "7. Ver tiempo promedio de espera restaurante\n";
+					cout << "8. Cancelar orden\n";
+					cout << "9. Calcular total de ventas\n";
+					cout << "10. Cambiar de usuario\n";
+					cout << "11. Salir\n";
+				    cout << "\nDetermine numero de ordenes a realizar:\t"; cin >> size; cin.ignore();
+				    Size = size;
+				    cout << "\nSeleccione una de las opciones del menu anterior:\t";
+			    	cin >> option;
+			    	cin.ignore();
+				    
+					//Determinating function selected	
+			    	switch (option){
+			    		case 1: system ("cls"); orders(size); break;
+			    		case 2: system ("cls"); orders(Size); break;
+						case 3: system ("cls"); seeDeliverOrders(); break;
+			    		case 4: system ("cls"); seeRestaurantOrders(); break;
+			    		case 5: system ("cls"); sendOrder(); break;
+						case 6: system ("cls"); calculateDeliverTime(); break;
+						case 7: system ("cls"); calculateRestaurantTime(); break;
+						case 8: system ("cls"); cancelOrder(); break;
+						case 9: system ("cls"); TotalSales(); break;
+				       	case 10: system ("cls"); main(); break;
+						case 11: system ("cls"); validation = false; break;
+						default: cout << "Opcion ingresada no valida" << endl; break;
+							
+			    	}
+					
+					cout << "PROCESO FINALIZADO" << endl;
+
+				}while(validation);
+			return;
+			}
+				
+			else cout << "Contrasena erronea, por favor introduzca de nuevo la contrasena." << endl;
+    			system ("pause");	
+    			system ("cls");
+		}while(password != passw);
+	}
+	else if (user == 2){
+		//Clean screen
+		system ("cls");
+		bool validation = true;
+		//Do-While bucle
+		do{
+			int size = 0, option = 0;
+			float Size = 0;
+			//Show on screen			
+			cout << "\n1. Agregar orden a domicilio \n";
+			cout << "2. Agregar orden a restaurante\n";
+			cout << "3. Ver ordenes a domicilio\n";
+			cout << "4. Ver ordenes en restaurante\n";
+			cout << "5. Despachar ordenes a domicilio o restaurante\n";
+			cout << "6. Ver tiempo promedio de espera domicilio\n";
+			cout << "7. Ver tiempo promedio de espera restaurante\n";
+			cout << "8. Calcular total de ventas\n";
+			cout << "9. Cambiar de usuario\n";
+			cout << "10. Salir\n";
+			cout << "\nDetermine numero de ordenes a realizar:\t"; cin >> size; cin.ignore();
+		    Size = size;
+		    cout << "\nSeleccione una de las opciones del menu anterior:\t";
+	    	cin >> option;
+	    	cin.ignore();
+			//Determinating function selected	    	
+	    	switch (option){
+	    		case 1: system ("cls"); orders(size); break;
+	    		case 2: system ("cls"); orders(Size); break;
+				case 3: system ("cls"); seeDeliverOrders(); break;
+	    		case 4: system ("cls"); seeRestaurantOrders(); break;
+	    		case 5: system ("cls"); sendOrder(); break;
+				case 6: system ("cls"); calculateDeliverTime(); break;
+				case 7: system ("cls"); calculateRestaurantTime(); break;
+				case 8: system ("cls"); TotalSales(); break;
+				case 9: system ("cls"); main(); break;
+				case 10: system ("cls"); validation = false; break;
+				default: cout << "Opcion ingresada no valida" << endl; break;
+							
+	    	}
+					
+			cout << "PROCESO FINALIZADO" << endl;
+
+		}while(validation);
+		return;
+	}
+	else
+	    cout << "Usuario no existe\n\n";
+	system ("cls");
+	return menu();
+}
+
 //Option 1 function
 void delivery(){
 	int size;
