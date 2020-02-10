@@ -875,6 +875,38 @@ void cancelOrder(){
             }
         }
     }
+    else if(option == 2){
+        cout << "Nombre del cliente a despachar: ";
+        getline(cin, unNombre);
+        
+        for(auto iter = restOrders.begin(); iter != restOrders.end(); ++iter){
+            if(iter->name == unNombre){
+            	for (int i = 0; i < restOrders.size(); i++) {
+                    cout << "Orden numero:\t" << idOrder;
+                    cout << "\nNombre del cliente:\t" << restOrders[i].name;
+            		cout << "\nPlato principal:\n";
+            		cout << " Pizza ha sido ordenada " << restOrders[i].pizza << " veces";
+                    cout << " \nPasta ha sido ordenada " << restOrders[i].pasta << " veces";
+                    cout << " \nLasagna ha sido ordenada " << restOrders[i].lasagna << " veces";
+            		cout << "\nEntrada:\n";
+            		cout << " Pan con ajo ha sido ordenada " << restOrders[i].bread << " veces";
+                    cout << " \nPizza rolls ha sido ordenada " << restOrders[i].rolls << " veces";
+                    cout << " \nPalitos de queso ha sido ordenada " << restOrders[i].sticks << " veces";
+            		cout << "\nBebida:\n";
+            		cout << " Cerveza ha sido ordenada " << restOrders[i].beer << " veces";
+                    cout << " \nSoda ha sido ordenada " << restOrders[i].soda << " veces";
+                    cout << " \nTe ha sido ordenada " << restOrders[i].tea << " veces";
+            		cout << "\nTipo de pago:\t" << restOrders[i].ptOrder;
+            		cout << "\nTotal a pagar:\t" << restOrders[i].total;
+            		cout << "\nTiempo que espero la orden:\t" << restOrders[i].timePerOrder;
+                }
+                iter = restOrders.erase(iter);
+                cout << "\nOrden cancelada.\n";
+                break;
+            }
+        }
+    }
+}
 //Option 6 function
 void totalSales(){
 	string name;
